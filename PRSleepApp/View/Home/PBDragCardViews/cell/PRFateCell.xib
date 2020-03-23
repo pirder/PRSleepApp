@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PRFateCell">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="539"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lTi-SQ-VEk">
+                    <rect key="frame" x="0.0" y="0.0" width="364" height="539"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqw-Jv-7O6">
+                    <rect key="frame" x="0.0" y="40" width="364" height="539"/>
+                    <connections>
+                        <action selector="playBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="a0w-0d-MXg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <constraints>
+                <constraint firstItem="Tqw-Jv-7O6" firstAttribute="width" secondItem="lTi-SQ-VEk" secondAttribute="width" id="1fz-Gb-tyK"/>
+                <constraint firstItem="Tqw-Jv-7O6" firstAttribute="centerX" secondItem="lTi-SQ-VEk" secondAttribute="centerX" id="1zB-lM-dO2"/>
+                <constraint firstItem="Tqw-Jv-7O6" firstAttribute="leading" secondItem="lTi-SQ-VEk" secondAttribute="leading" id="2gS-kJ-ZOa"/>
+                <constraint firstItem="lTi-SQ-VEk" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="3du-34-XLh"/>
+                <constraint firstItem="lTi-SQ-VEk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9tZ-dW-sJs"/>
+                <constraint firstAttribute="top" secondItem="lTi-SQ-VEk" secondAttribute="top" id="DIx-OL-FJ5"/>
+                <constraint firstItem="Tqw-Jv-7O6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="EaR-tc-Ag2"/>
+                <constraint firstItem="Tqw-Jv-7O6" firstAttribute="height" secondItem="lTi-SQ-VEk" secondAttribute="height" id="UoI-Xr-BnM"/>
+                <constraint firstItem="lTi-SQ-VEk" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Uxm-tN-zVI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="imageBtn" destination="Tqw-Jv-7O6" id="9C9-AG-n6t"/>
+                <outlet property="imageView" destination="lTi-SQ-VEk" id="4gy-I1-1zL"/>
+            </connections>
+            <point key="canvasLocation" x="780.79999999999995" y="-218.1409295352324"/>
+        </view>
+    </objects>
+</document>

@@ -22,9 +22,11 @@
 
 -(void) initRootVC
 {
+    
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
 //    self.window.hidden = NO;
-    self.window.backgroundColor = [UIColor blueColor];
+    self.window.backgroundColor = [UIColor blackColor];
+    self.window.hidden = NO;
     //1
     HomeViewController *VC1 = [[HomeViewController alloc]init];
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:VC1];
@@ -34,7 +36,7 @@
     
     MineViewController *VC3 = [[MineViewController alloc]init];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:VC3];
-    
+   
     VC1.title = @"我的家";
     VC2.title = @"更多";
     VC3.title = @"我的";
@@ -53,7 +55,7 @@
     UITabBarItem  *item2 = [tabBar.items objectAtIndex:1];
     UITabBarItem  *item3 = [tabBar.items objectAtIndex:2];
 //
-
+   
     //半透明属性
     //    tabBar.backgroundImage = [[UIImage alloc] init];
     //    tabBar.backgroundColor = nil;

@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A0FD2C224274D9E00C781CF /* image_3member_daily_left_center_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0FD2BF24274D9D00C781CF /* image_3member_daily_left_center_bg.jpg */; };
+		6A0FD2C324274D9E00C781CF /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0FD2C024274D9D00C781CF /* image_1.jpg */; };
+		6A0FD2C424274D9E00C781CF /* image_2member_daily_left_center_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A0FD2C124274D9D00C781CF /* image_2member_daily_left_center_bg.jpg */; };
 		6A1EAA1123FBC79900A84CA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1EAA1023FBC79900A84CA0 /* AppDelegate.m */; };
 		6A1EAA1A23FBC79900A84CA0 /* PRSleepApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A1EAA1823FBC79900A84CA0 /* PRSleepApp.xcdatamodeld */; };
 		6A1EAA1C23FBC79B00A84CA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A1EAA1B23FBC79B00A84CA0 /* Assets.xcassets */; };
@@ -21,13 +24,29 @@
 		6A2EF7E123FBF91B001522FA /* iconMoreNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A2EF7DF23FBF91B001522FA /* iconMoreNormal.png */; };
 		6A2EF7E223FBF91B001522FA /* iconMoreSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A2EF7E023FBF91B001522FA /* iconMoreSelected.png */; };
 		6A2EF7E423FBFBDC001522FA /* iconClockNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A2EF7E323FBFBDC001522FA /* iconClockNormal.png */; };
+		6A32E25F2427460100C75151 /* PRFateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A32E25E2427460100C75151 /* PRFateCell.m */; };
+		6A32E2632427486100C75151 /* PRFateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A32E2622427486100C75151 /* PRFateCell.xib */; };
+		6A496D242428A72D00D8FD8C /* image_1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6A496D222428A72D00D8FD8C /* image_1.m4a */; };
+		6A496D252428A72D00D8FD8C /* image_2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6A496D232428A72D00D8FD8C /* image_2.m4a */; };
+		6A496D272428A84000D8FD8C /* playBTN1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A496D262428A84000D8FD8C /* playBTN1.png */; };
+		6A496D292428A93100D8FD8C /* playBTN.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A496D282428A93000D8FD8C /* playBTN.png */; };
+		6A496D332428C24800D8FD8C /* PRHomeSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A496D322428C24800D8FD8C /* PRHomeSleepViewController.m */; };
+		6A6218422417846D00761815 /* preset_focus_ocean.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6A6218412417846D00761815 /* preset_focus_ocean.m4a */; };
+		6A6FFF512424A972001BBE85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6FFF502424A972001BBE85 /* CoreGraphics.framework */; };
+		6A78DF2A24249182008608B8 /* PRDragCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A78DF2924249182008608B8 /* PRDragCardView.m */; };
+		6A7BB0962424B1CE0078CF81 /* PRDragCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BB0952424B1CE0078CF81 /* PRDragCardCell.m */; };
 		6A9931DA240E0DAE000AB6AC /* member_daily_center_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */; };
-		6A9931DB240E0DAE000AB6AC /* member_daily_left_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D8240E0DAE000AB6AC /* member_daily_left_bg.jpg */; };
-		6A9931DC240E0DAE000AB6AC /* member_daily_left_center_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D9240E0DAE000AB6AC /* member_daily_left_center_bg.jpg */; };
+		6A9931DB240E0DAE000AB6AC /* image_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D8240E0DAE000AB6AC /* image_2.jpg */; };
+		6A9931DC240E0DAE000AB6AC /* image_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D9240E0DAE000AB6AC /* image_3.jpg */; };
 		6A9931E0240E5E58000AB6AC /* tranlcent.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931DF240E5E58000AB6AC /* tranlcent.png */; };
+		DCF6B933A5F535D492F53273 /* Pods_PRSleepApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F014DB7583B87883229E29CC /* Pods_PRSleepApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		129FE9F691A2E9F09D035247 /* Pods-PRSleepApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRSleepApp.debug.xcconfig"; path = "Target Support Files/Pods-PRSleepApp/Pods-PRSleepApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6A0FD2BF24274D9D00C781CF /* image_3member_daily_left_center_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_3member_daily_left_center_bg.jpg; sourceTree = "<group>"; };
+		6A0FD2C024274D9D00C781CF /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
+		6A0FD2C124274D9D00C781CF /* image_2member_daily_left_center_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_2member_daily_left_center_bg.jpg; sourceTree = "<group>"; };
 		6A1EAA0C23FBC79900A84CA0 /* PRSleepApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRSleepApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1EAA0F23FBC79900A84CA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6A1EAA1023FBC79900A84CA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,10 +68,28 @@
 		6A2EF7DF23FBF91B001522FA /* iconMoreNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconMoreNormal.png; sourceTree = "<group>"; };
 		6A2EF7E023FBF91B001522FA /* iconMoreSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconMoreSelected.png; sourceTree = "<group>"; };
 		6A2EF7E323FBFBDC001522FA /* iconClockNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconClockNormal.png; sourceTree = "<group>"; };
+		6A32E25D2427460100C75151 /* PRFateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRFateCell.h; sourceTree = "<group>"; };
+		6A32E25E2427460100C75151 /* PRFateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRFateCell.m; sourceTree = "<group>"; };
+		6A32E2622427486100C75151 /* PRFateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRFateCell.xib; sourceTree = "<group>"; };
+		6A496D222428A72D00D8FD8C /* image_1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = image_1.m4a; sourceTree = "<group>"; };
+		6A496D232428A72D00D8FD8C /* image_2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = image_2.m4a; sourceTree = "<group>"; };
+		6A496D262428A84000D8FD8C /* playBTN1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBTN1.png; sourceTree = "<group>"; };
+		6A496D282428A93000D8FD8C /* playBTN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBTN.png; sourceTree = "<group>"; };
+		6A496D312428C24800D8FD8C /* PRHomeSleepViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRHomeSleepViewController.h; sourceTree = "<group>"; };
+		6A496D322428C24800D8FD8C /* PRHomeSleepViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRHomeSleepViewController.m; sourceTree = "<group>"; };
+		6A6218412417846D00761815 /* preset_focus_ocean.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = preset_focus_ocean.m4a; sourceTree = "<group>"; };
+		6A6FFF502424A972001BBE85 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6A78DF2824249182008608B8 /* PRDragCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDragCardView.h; sourceTree = "<group>"; };
+		6A78DF2924249182008608B8 /* PRDragCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRDragCardView.m; sourceTree = "<group>"; };
+		6A7BB0922424B0E50078CF81 /* PRDragConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDragConfig.h; sourceTree = "<group>"; };
+		6A7BB0942424B1CE0078CF81 /* PRDragCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDragCardCell.h; sourceTree = "<group>"; };
+		6A7BB0952424B1CE0078CF81 /* PRDragCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRDragCardCell.m; sourceTree = "<group>"; };
 		6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = member_daily_center_bg.jpg; sourceTree = "<group>"; };
-		6A9931D8240E0DAE000AB6AC /* member_daily_left_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = member_daily_left_bg.jpg; sourceTree = "<group>"; };
-		6A9931D9240E0DAE000AB6AC /* member_daily_left_center_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = member_daily_left_center_bg.jpg; sourceTree = "<group>"; };
+		6A9931D8240E0DAE000AB6AC /* image_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_2.jpg; sourceTree = "<group>"; };
+		6A9931D9240E0DAE000AB6AC /* image_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_3.jpg; sourceTree = "<group>"; };
 		6A9931DF240E5E58000AB6AC /* tranlcent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tranlcent.png; sourceTree = "<group>"; };
+		94A3BF127F05EC0A8B3A5753 /* Pods-PRSleepApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRSleepApp.release.xcconfig"; path = "Target Support Files/Pods-PRSleepApp/Pods-PRSleepApp.release.xcconfig"; sourceTree = "<group>"; };
+		F014DB7583B87883229E29CC /* Pods_PRSleepApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRSleepApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +97,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6FFF512424A972001BBE85 /* CoreGraphics.framework in Frameworks */,
+				DCF6B933A5F535D492F53273 /* Pods_PRSleepApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A0FD2C524274FE900C781CF /* PBDragCardViews */ = {
+			isa = PBXGroup;
+			children = (
+				6A78DF2824249182008608B8 /* PRDragCardView.h */,
+				6A78DF2924249182008608B8 /* PRDragCardView.m */,
+				6A7BB0942424B1CE0078CF81 /* PRDragCardCell.h */,
+				6A7BB0952424B1CE0078CF81 /* PRDragCardCell.m */,
+				6A7BB0922424B0E50078CF81 /* PRDragConfig.h */,
+				6A0FD2C624274FFA00C781CF /* cell */,
+			);
+			path = PBDragCardViews;
+			sourceTree = "<group>";
+		};
+		6A0FD2C624274FFA00C781CF /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				6A32E25D2427460100C75151 /* PRFateCell.h */,
+				6A32E25E2427460100C75151 /* PRFateCell.m */,
+				6A32E2622427486100C75151 /* PRFateCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		6A1EAA0323FBC79900A84CA0 = {
 			isa = PBXGroup;
 			children = (
 				6A1EAA0E23FBC79900A84CA0 /* PRSleepApp */,
 				6A1EAA0D23FBC79900A84CA0 /* Products */,
+				83B75CCDF685E1DF4B75D463 /* Pods */,
+				78290F604F3A5B14981CAFF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +152,7 @@
 				6A1EAA0F23FBC79900A84CA0 /* AppDelegate.h */,
 				6A1EAA1023FBC79900A84CA0 /* AppDelegate.m */,
 				6A1EAA2823FBDBAA00A84CA0 /* Controller */,
+				6A4BC488240FDD72006DE658 /* View */,
 				6A1EAA1B23FBC79B00A84CA0 /* Assets.xcassets */,
 				6A1EAA1D23FBC79B00A84CA0 /* LaunchScreen.storyboard */,
 				6A1EAA2023FBC79B00A84CA0 /* Info.plist */,
@@ -113,6 +178,8 @@
 			children = (
 				6A1EAA2A23FBDD0F00A84CA0 /* HomeViewController.h */,
 				6A1EAA2B23FBDD0F00A84CA0 /* HomeViewController.m */,
+				6A496D312428C24800D8FD8C /* PRHomeSleepViewController.h */,
+				6A496D322428C24800D8FD8C /* PRHomeSleepViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -166,15 +233,57 @@
 			path = tabBar;
 			sourceTree = "<group>";
 		};
+		6A496D2A2428ACE900D8FD8C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6A0FD2C524274FE900C781CF /* PBDragCardViews */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6A4BC488240FDD72006DE658 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A496D2A2428ACE900D8FD8C /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6A9931D6240E0D93000AB6AC /* HomeImage */ = {
 			isa = PBXGroup;
 			children = (
+				6A496D262428A84000D8FD8C /* playBTN1.png */,
+				6A6218412417846D00761815 /* preset_focus_ocean.m4a */,
 				6A9931DF240E5E58000AB6AC /* tranlcent.png */,
 				6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */,
-				6A9931D8240E0DAE000AB6AC /* member_daily_left_bg.jpg */,
-				6A9931D9240E0DAE000AB6AC /* member_daily_left_center_bg.jpg */,
+				6A496D222428A72D00D8FD8C /* image_1.m4a */,
+				6A496D282428A93000D8FD8C /* playBTN.png */,
+				6A496D232428A72D00D8FD8C /* image_2.m4a */,
+				6A0FD2C024274D9D00C781CF /* image_1.jpg */,
+				6A9931D8240E0DAE000AB6AC /* image_2.jpg */,
+				6A9931D9240E0DAE000AB6AC /* image_3.jpg */,
+				6A0FD2C124274D9D00C781CF /* image_2member_daily_left_center_bg.jpg */,
+				6A0FD2BF24274D9D00C781CF /* image_3member_daily_left_center_bg.jpg */,
 			);
 			path = HomeImage;
+			sourceTree = "<group>";
+		};
+		78290F604F3A5B14981CAFF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A6FFF502424A972001BBE85 /* CoreGraphics.framework */,
+				F014DB7583B87883229E29CC /* Pods_PRSleepApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83B75CCDF685E1DF4B75D463 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				129FE9F691A2E9F09D035247 /* Pods-PRSleepApp.debug.xcconfig */,
+				94A3BF127F05EC0A8B3A5753 /* Pods-PRSleepApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,9 +293,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A1EAA2523FBC79B00A84CA0 /* Build configuration list for PBXNativeTarget "PRSleepApp" */;
 			buildPhases = (
+				E4584D64B067162D91526AB6 /* [CP] Check Pods Manifest.lock */,
 				6A1EAA0823FBC79900A84CA0 /* Sources */,
 				6A1EAA0923FBC79900A84CA0 /* Frameworks */,
 				6A1EAA0A23FBC79900A84CA0 /* Resources */,
+				4D659B355350E9240C81BBDA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +314,7 @@
 		6A1EAA0423FBC79900A84CA0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PR;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = priders;
 				TargetAttributes = {
@@ -234,22 +346,73 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A496D272428A84000D8FD8C /* playBTN1.png in Resources */,
 				6A1EAA1F23FBC79B00A84CA0 /* LaunchScreen.storyboard in Resources */,
 				6A9931DA240E0DAE000AB6AC /* member_daily_center_bg.jpg in Resources */,
+				6A496D242428A72D00D8FD8C /* image_1.m4a in Resources */,
 				6A2EF7D823FBF780001522FA /* iconClockSlected.png in Resources */,
 				6A9931E0240E5E58000AB6AC /* tranlcent.png in Resources */,
+				6A0FD2C424274D9E00C781CF /* image_2member_daily_left_center_bg.jpg in Resources */,
+				6A6218422417846D00761815 /* preset_focus_ocean.m4a in Resources */,
 				6A2EF7DD23FBF8B3001522FA /* iconMineSelected.png in Resources */,
 				6A2EF7E423FBFBDC001522FA /* iconClockNormal.png in Resources */,
+				6A496D292428A93100D8FD8C /* playBTN.png in Resources */,
+				6A32E2632427486100C75151 /* PRFateCell.xib in Resources */,
+				6A0FD2C224274D9E00C781CF /* image_3member_daily_left_center_bg.jpg in Resources */,
 				6A1EAA1C23FBC79B00A84CA0 /* Assets.xcassets in Resources */,
 				6A2EF7E123FBF91B001522FA /* iconMoreNormal.png in Resources */,
 				6A2EF7DE23FBF8B3001522FA /* iconMineNormal.png in Resources */,
-				6A9931DC240E0DAE000AB6AC /* member_daily_left_center_bg.jpg in Resources */,
+				6A9931DC240E0DAE000AB6AC /* image_3.jpg in Resources */,
+				6A0FD2C324274D9E00C781CF /* image_1.jpg in Resources */,
+				6A496D252428A72D00D8FD8C /* image_2.m4a in Resources */,
 				6A2EF7E223FBF91B001522FA /* iconMoreSelected.png in Resources */,
-				6A9931DB240E0DAE000AB6AC /* member_daily_left_bg.jpg in Resources */,
+				6A9931DB240E0DAE000AB6AC /* image_2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D659B355350E9240C81BBDA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PRSleepApp/Pods-PRSleepApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PRSleepApp/Pods-PRSleepApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PRSleepApp/Pods-PRSleepApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4584D64B067162D91526AB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PRSleepApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6A1EAA0823FBC79900A84CA0 /* Sources */ = {
@@ -260,6 +423,10 @@
 				6A1EAA2223FBC79B00A84CA0 /* main.m in Sources */,
 				6A1EAA3023FBDD5500A84CA0 /* MineViewController.m in Sources */,
 				6A1EAA2C23FBDD0F00A84CA0 /* HomeViewController.m in Sources */,
+				6A32E25F2427460100C75151 /* PRFateCell.m in Sources */,
+				6A78DF2A24249182008608B8 /* PRDragCardView.m in Sources */,
+				6A7BB0962424B1CE0078CF81 /* PRDragCardCell.m in Sources */,
+				6A496D332428C24800D8FD8C /* PRHomeSleepViewController.m in Sources */,
 				6A1EAA3523FBDD8800A84CA0 /* MoreViewController.m in Sources */,
 				6A1EAA1A23FBC79900A84CA0 /* PRSleepApp.xcdatamodeld in Sources */,
 			);
@@ -393,6 +560,7 @@
 		};
 		6A1EAA2623FBC79B00A84CA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 129FE9F691A2E9F09D035247 /* Pods-PRSleepApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -406,12 +574,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = priders.PRSleepApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = " $(SRCROOT)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 			};
 			name = Debug;
 		};
 		6A1EAA2723FBC79B00A84CA0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94A3BF127F05EC0A8B3A5753 /* Pods-PRSleepApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -425,7 +594,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = priders.PRSleepApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = " $(SRCROOT)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 			};
 			name = Release;
 		};
