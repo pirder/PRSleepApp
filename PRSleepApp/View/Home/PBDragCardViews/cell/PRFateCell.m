@@ -28,7 +28,10 @@
     self.imageView.image = [UIImage imageNamed:imageName];
 //    [self.imageBtn setTitle:@"stop" forState:UIControlStateNormal];
     [self setPlayIsOrNot:YES];
+//    [self.imageBtn setBackgroundColor:[UIColor darkGrayColor]];
+    [self.imageBtn setTintColor:[UIColor darkGrayColor]];
     [self.imageBtn setImage:[UIImage imageNamed:@"playBTN"] forState:UIControlStateNormal];
+    
 //    [self playBtnClick:[self imageBtn]];
 }
 - (void)awakeFromNib {

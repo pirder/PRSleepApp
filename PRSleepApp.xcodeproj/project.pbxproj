@@ -39,6 +39,8 @@
 		6A9931DB240E0DAE000AB6AC /* image_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D8240E0DAE000AB6AC /* image_2.jpg */; };
 		6A9931DC240E0DAE000AB6AC /* image_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D9240E0DAE000AB6AC /* image_3.jpg */; };
 		6A9931E0240E5E58000AB6AC /* tranlcent.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931DF240E5E58000AB6AC /* tranlcent.png */; };
+		6AC6D9472429B29D00FF3479 /* PRDataPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC6D9462429B29D00FF3479 /* PRDataPicker.m */; };
+		6AC6D949242A168C00FF3479 /* 4948.MP3 in Resources */ = {isa = PBXBuildFile; fileRef = 6AC6D948242A168C00FF3479 /* 4948.MP3 */; };
 		DCF6B933A5F535D492F53273 /* Pods_PRSleepApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F014DB7583B87883229E29CC /* Pods_PRSleepApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,9 @@
 		6A9931D8240E0DAE000AB6AC /* image_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_2.jpg; sourceTree = "<group>"; };
 		6A9931D9240E0DAE000AB6AC /* image_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_3.jpg; sourceTree = "<group>"; };
 		6A9931DF240E5E58000AB6AC /* tranlcent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tranlcent.png; sourceTree = "<group>"; };
+		6AC6D9452429B29D00FF3479 /* PRDataPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDataPicker.h; sourceTree = "<group>"; };
+		6AC6D9462429B29D00FF3479 /* PRDataPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRDataPicker.m; sourceTree = "<group>"; };
+		6AC6D948242A168C00FF3479 /* 4948.MP3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4948.MP3; sourceTree = "<group>"; };
 		94A3BF127F05EC0A8B3A5753 /* Pods-PRSleepApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRSleepApp.release.xcconfig"; path = "Target Support Files/Pods-PRSleepApp/Pods-PRSleepApp.release.xcconfig"; sourceTree = "<group>"; };
 		F014DB7583B87883229E29CC /* Pods_PRSleepApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRSleepApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -180,6 +185,8 @@
 				6A1EAA2B23FBDD0F00A84CA0 /* HomeViewController.m */,
 				6A496D312428C24800D8FD8C /* PRHomeSleepViewController.h */,
 				6A496D322428C24800D8FD8C /* PRHomeSleepViewController.m */,
+				6AC6D9452429B29D00FF3479 /* PRDataPicker.h */,
+				6AC6D9462429B29D00FF3479 /* PRDataPicker.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -256,6 +263,7 @@
 				6A6218412417846D00761815 /* preset_focus_ocean.m4a */,
 				6A9931DF240E5E58000AB6AC /* tranlcent.png */,
 				6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */,
+				6AC6D948242A168C00FF3479 /* 4948.MP3 */,
 				6A496D222428A72D00D8FD8C /* image_1.m4a */,
 				6A496D282428A93000D8FD8C /* playBTN.png */,
 				6A496D232428A72D00D8FD8C /* image_2.m4a */,
@@ -347,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A496D272428A84000D8FD8C /* playBTN1.png in Resources */,
+				6AC6D949242A168C00FF3479 /* 4948.MP3 in Resources */,
 				6A1EAA1F23FBC79B00A84CA0 /* LaunchScreen.storyboard in Resources */,
 				6A9931DA240E0DAE000AB6AC /* member_daily_center_bg.jpg in Resources */,
 				6A496D242428A72D00D8FD8C /* image_1.m4a in Resources */,
@@ -429,6 +438,7 @@
 				6A496D332428C24800D8FD8C /* PRHomeSleepViewController.m in Sources */,
 				6A1EAA3523FBDD8800A84CA0 /* MoreViewController.m in Sources */,
 				6A1EAA1A23FBC79900A84CA0 /* PRSleepApp.xcdatamodeld in Sources */,
+				6AC6D9472429B29D00FF3479 /* PRDataPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

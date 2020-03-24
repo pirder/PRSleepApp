@@ -104,14 +104,17 @@
     NSString *currentTimeString = [formatter stringFromDate:datenow];
     
     int time = [currentTimeString intValue];
+     NSLog(@"%d",time);
     if (time>17&&time<=19) {
         return @"傍晚";
     }else if(time<=06){
         return @"晚上";
+    } else if(time>06){
+        return @"下午";
     } else{
         return @"早上";
             }
-
+   
 //    return currentTimeString;
 }
 
@@ -159,7 +162,7 @@
         [_leftBtn setTitle:@"睡眠" forState:UIControlStateNormal];
 //        [_leftBtn setTitle:@"摸我干啥" forState:UIControlStateHighlighted];
         
-        [_leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_leftBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [_leftBtn.layer setBorderWidth:0.5];
         [_leftBtn.layer setBorderColor:[UIColor darkGrayColor].CGColor];
         [_leftBtn.layer setCornerRadius:30.0];
@@ -178,7 +181,7 @@
         [_rightBtn setTitle:@"畅聊" forState:UIControlStateNormal];
         //        [_leftBtn setTitle:@"摸我干啥" forState:UIControlStateHighlighted];
         
-        [_rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_rightBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [_rightBtn.layer setBorderWidth:0.5];
         [_rightBtn.layer setBorderColor:[UIColor darkGrayColor].CGColor];
         [_rightBtn.layer setCornerRadius:30.0];
@@ -194,7 +197,10 @@
 -(void)buttonSleep{
     PRHomeSleepViewController  *menu = [[PRHomeSleepViewController alloc] init];
     [menu setDelegate:self];
-    [menu setModalPresentationStyle:UIModalPresentationFullScreen];
+    //背景
+    self.definesPresentationContext =YES;
+    [menu setModalPresentationStyle:UIModalPresentationOverFullScreen];
+    
     [menu setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:menu animated:YES completion:nil];
     
@@ -249,6 +255,7 @@
 }
 - (void)PRMenuDidTapOnBackground:(PRHomeSleepViewController *)sleepMenu{
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 @end
