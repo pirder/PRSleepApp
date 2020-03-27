@@ -150,7 +150,7 @@
         //        Helvetica TrebuchetMS
         _topLabel.text = [NSString stringWithFormat:@"%@好",self.getCurrentTime];
         
-        _topLabel.textColor = [UIColor whiteColor];
+        _topLabel.textColor = [UIColor darkGrayColor];
     }
     return _topLabel;
 }
