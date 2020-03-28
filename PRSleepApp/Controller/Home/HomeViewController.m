@@ -11,7 +11,7 @@
 #import "PRFateCell.h"
 #import "PRDragConfig.h"
 #import "PRHomeSleepViewController.h"
-
+#import <AVOSCloud/AVOSCloud.h>
 ////横向比例
 #define WidthScale(number)   ([UIScreen mainScreen].bounds.size.width/375.*(number))
 ////纵向比例
@@ -36,7 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self initNav];
+    [self initNav];
+
     [self setUI];
     [self loadData];
     

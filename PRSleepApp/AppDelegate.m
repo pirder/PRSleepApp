@@ -10,8 +10,14 @@
 #import "HomeViewController.h"
 #import "MoreViewController.h"
 #import "MineViewController.h"
+//#import "PRLoginViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 #import "Public.h"
+
+#define APP_ID @"erPdYyNlHrnLg71uCqcY8GxD-gzGzoHsz"
+#define APP_KEY @"qaxblrv3HKG2uiKdDR9MpYDF"
+
 
 @interface AppDelegate ()
 
@@ -50,6 +56,7 @@
 //    self.window.rootViewController = self.rootTabbarCtr;
 //    [self.window setRootViewController:self.rootTabbarCtr];
     self.window.rootViewController = self.rootTabbarCtr;
+    
     UITabBar *tabBar = self.rootTabbarCtr.tabBar;
     UITabBarItem  *item1 = [tabBar.items objectAtIndex:0];
     UITabBarItem  *item2 = [tabBar.items objectAtIndex:1];
@@ -74,7 +81,7 @@
     //设置uitabbaritewm字体
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGB(54, 185,175),UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
-    
+//    self.window.rootViewController = [[PRLoginViewController alloc]init];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [self.window makeKeyAndVisible];
@@ -84,9 +91,7 @@
     return [[UIImage alloc]init];
 }
 - (UIImage *)imageWithColor:(UIColor *)color {
-    
     CGRect rect = CGRectMake(0.0f,0.0f, 1.0f,1.0f);
-    
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context =UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, [color CGColor]);
@@ -98,6 +103,11 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY serverURLString:@"https://erpdyynl.lc-cn-n1-shared.com"];
+//
+//    [AVOSCloud setAllLogsEnabled:YES];
+    
     
     [self initRootVC];
     
