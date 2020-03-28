@@ -112,26 +112,30 @@
         [user setUsername:username];
         [user setPassword:password];
         [user setEmail:cemail];
+         
 //        user[@"phone"] = phone;
         [user setMobilePhoneNumber:phone];
-//        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//            if (succeeded) {
-//                [self.delegate successSignUpAutoLogin:user];
-//                [self dismissViewControllerAnimated:NO completion:nil];
-//            }
-//    else{
-//       
-//        [[[UIAlertView alloc] initWithTitle:@"注册失败"
-//                                    message:[error userInfo][@"error"]
-//                                   delegate:nil
-//                          cancelButtonTitle:@"确定"
-//                          otherButtonTitles:nil, nil] show];
-//    }
-//        }];
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                [self checkIfToUploadImage];
+                [self.delegate successSignUpAutoLogin:user];
+                [self dismissViewControllerAnimated:NO completion:nil];
+            }
+    else{
+        [[[UIAlertView alloc] initWithTitle:@"注册失败"
+                                    message:[error userInfo][@"error"]
+                                   delegate:nil
+                          cancelButtonTitle:@"确定"
+                          otherButtonTitles:nil, nil] show];
+    }
+        }];
+        
         //测试一定成功
-         [self.delegate successSignUpAutoLogin:user];
-         [self dismissViewControllerAnimated:NO completion:nil];
-          [UIAlertController alertControllerWithTitle:@"注册失败" message:err preferredStyle:UIAlertControllerStyleAlert];
+//         [self.delegate successSignUpAutoLogin:user];
+//         [self dismissViewControllerAnimated:NO completion:nil];
+//          [UIAlertController alertControllerWithTitle:@"注册失败" message:err preferredStyle:UIAlertControllerStyleAlert];
+        
+        
         
     }else{
         [[[UIAlertView alloc] initWithTitle:@"注册失败"
@@ -153,6 +157,35 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
+
+//保存图片
+-(void)checkIfToUploadImage{
+    if(toUploadImage) {
+        AVUser *currentUser = [AVUser currentUser];
+        NSString *strImageName = [NSString stringWithFormat:@"%@.png",currentUser.objectId];
+        
+        NSData *imageData = UIImagePNGRepresentation(self.imageView.image);
+        AVFile *imageFile = [AVFile fileWithData:imageData name:strImageName];
+        [imageFile uploadWithCompletionHandler:^(BOOL succeeded, NSError * _Nullable error) {
+            if (!error) {
+                //   photoUploaded  = YES;
+                [currentUser setObject:imageFile forKey:@"imageHead"];
+                [currentUser saveInBackgroundWithBlock:^(BOOL succeeded , NSError *error){
+                    if (!error){
+                        //上传成功
+                        //   photoUploaded = YES;
+                    }else{
+                        //   photoUploaded = NO;
+                        //上传失败
+                    }
+                    
+                    //成功跳转
+        }];
+            }
+        }];
+    }
+
+}
 
 /*
 #pragma mark - Navigation

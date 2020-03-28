@@ -9,14 +9,21 @@
 #import "MineViewController.h"
 #import "PRLoginViewController.h"
 #import "HomeViewController.h"
+#import <AVOSCloud.h>
+
+#define curuser  [AVUser currentUser]
+
+
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,PRLoginViewControllerDelegate>
 {
         UITableView *personalTableView;
         NSArray *dataSource;
         NSString *name;
         PRLoginViewController *login ;
-    BOOL isLogin;
+        BOOL isLogin;
+    
 }
+
 
 @end
 
@@ -27,6 +34,7 @@
     [super viewDidLoad];
     [self startUI];
 //    [self setUI];
+
     // Do any additional setup after loading the view.
 }
 
@@ -38,7 +46,7 @@
     personalTableView.bounces = NO;//yes，就是滚动超过边界会反弹有反弹回来的效果; NO，那么滚动到达边界会立刻停止。
     personalTableView.showsVerticalScrollIndicator = NO;//不显示右侧滑块
     personalTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
-    dataSource = @[@"我的分享",@"密码管理",@"用户协议",@"关于"];
+    dataSource = @[@"我的心经",@"密码管理",@"意见反馈",@"关于"];
 }
 - (void)setUI{
     //判断是否登陆，由登陆状态判断启动页面
@@ -158,10 +166,26 @@
     if (indexPath.section == 0) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"userinfo"];
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(12, 10, 60, 60)];
-        imageView.image = [UIImage imageNamed:@"touxiang"];
+// 投降处理
+          AVQuery *userQuery = [AVUser query];
+        [userQuery whereKey:@"username" equalTo:name];
+        [userQuery getFirstObjectInBackgroundWithBlock:^(AVObject * _Nullable object, NSError * _Nullable error) {
+            if (!error) {
+           //     NSLog(@"%@",object);
+               // NSLog(@"%@",[[object objectForKey:@"imageHead"] objectForKey:@"url"]);
+                NSString *surl = [[object objectForKey:@"imageHead"] objectForKey:@"url"];
+                AVFile *file = [AVFile fileWithRemoteURL:[NSURL URLWithString:surl]];
+               [file getThumbnail:YES width:60 height:60 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+                    imageView.image = image;
+               }];
+            }else{
+                imageView.image = [UIImage imageNamed:@"touxiang"];
+            }
+        }];
+       
         [cell.contentView addSubview:imageView];
         
-        UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 0, 60, 80)];
+        UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 0, 150, 80)];
         nameLabel.text = name? name:@"sleepyingBOY";
         [cell.contentView addSubview:nameLabel];
     
@@ -181,6 +205,7 @@
     if (indexPath.section == 2) {
         
         //退出登录
+        [AVUser logOut];
         NSLog(@"exit");
         //获取UserDefaults单例
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
