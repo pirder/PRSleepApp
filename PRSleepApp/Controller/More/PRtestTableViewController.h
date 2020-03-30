@@ -1,5 +1,5 @@
 //
-//  MoreViewController.h
+//  PRtestTableViewController.h
 //  PRSleepApp
 //
 //  Created by priders on 2020/3/29.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MoreViewController : UITableViewController
+@interface PRtestTableViewController : UITableViewController
 
 @end
 

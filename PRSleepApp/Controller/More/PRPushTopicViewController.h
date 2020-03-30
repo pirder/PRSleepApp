@@ -1,8 +1,8 @@
 //
-//  MoreViewController.h
+//  PRPushTopicViewController.h
 //  PRSleepApp
 //
-//  Created by priders on 2020/3/29.
+//  Created by priders on 2020/3/30.
 //  Copyright © 2020 priders. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MoreViewController : UITableViewController
+@interface PRPushTopicViewController : UIViewController
 
 @end
 

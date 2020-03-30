@@ -17,7 +17,9 @@
 		6A1EAA2223FBC79B00A84CA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1EAA2123FBC79B00A84CA0 /* main.m */; };
 		6A1EAA2C23FBDD0F00A84CA0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1EAA2B23FBDD0F00A84CA0 /* HomeViewController.m */; };
 		6A1EAA3023FBDD5500A84CA0 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1EAA2F23FBDD5500A84CA0 /* MineViewController.m */; };
-		6A1EAA3523FBDD8800A84CA0 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1EAA3423FBDD8800A84CA0 /* MoreViewController.m */; };
+		6A25650C2430CA47002623AE /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A25650B2430CA47002623AE /* SDWebImage.framework */; };
+		6A25650F2430D804002623AE /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A25650E2430D804002623AE /* MoreViewController.m */; };
+		6A2565122430DBB9002623AE /* PRtestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2565112430DBB9002623AE /* PRtestTableViewController.m */; };
 		6A286365242DDF7E00BFA4E8 /* touxiang.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A286364242DDF7E00BFA4E8 /* touxiang.png */; };
 		6A28636A242DEB7B00BFA4E8 /* PRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A286369242DEB7B00BFA4E8 /* PRLoginViewController.m */; };
 		6A286379242DEEAF00BFA4E8 /* login_btn_blue_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A28636C242DEEAD00BFA4E8 /* login_btn_blue_press@2x.png */; };
@@ -50,10 +52,16 @@
 		6A496D272428A84000D8FD8C /* playBTN1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A496D262428A84000D8FD8C /* playBTN1.png */; };
 		6A496D292428A93100D8FD8C /* playBTN.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A496D282428A93000D8FD8C /* playBTN.png */; };
 		6A496D332428C24800D8FD8C /* PRHomeSleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A496D322428C24800D8FD8C /* PRHomeSleepViewController.m */; };
+		6A4A015024309D290033ADCA /* PRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4A014F24309D290033ADCA /* PRUser.m */; };
+		6A4A01552430AD500033ADCA /* PRTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4A01542430AD500033ADCA /* PRTopics.m */; };
+		6A4A01592430AE9C0033ADCA /* PRTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4A01572430AE9C0033ADCA /* PRTopicTableViewCell.m */; };
+		6A4A015A2430AE9C0033ADCA /* PRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A01582430AE9C0033ADCA /* PRTopicTableViewCell.xib */; };
 		6A6218422417846D00761815 /* preset_focus_ocean.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6A6218412417846D00761815 /* preset_focus_ocean.m4a */; };
 		6A6FFF512424A972001BBE85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6FFF502424A972001BBE85 /* CoreGraphics.framework */; };
 		6A78DF2A24249182008608B8 /* PRDragCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A78DF2924249182008608B8 /* PRDragCardView.m */; };
 		6A7BB0962424B1CE0078CF81 /* PRDragCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BB0952424B1CE0078CF81 /* PRDragCardCell.m */; };
+		6A804854243235130084B7D6 /* PRPushTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A804852243235130084B7D6 /* PRPushTopicViewController.m */; };
+		6A804855243235130084B7D6 /* PRPushTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A804853243235130084B7D6 /* PRPushTopicViewController.xib */; };
 		6A9931DA240E0DAE000AB6AC /* member_daily_center_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */; };
 		6A9931DB240E0DAE000AB6AC /* image_20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D8240E0DAE000AB6AC /* image_20.jpg */; };
 		6A9931DC240E0DAE000AB6AC /* image_30.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D9240E0DAE000AB6AC /* image_30.jpg */; };
@@ -82,8 +90,11 @@
 		6A1EAA2B23FBDD0F00A84CA0 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		6A1EAA2E23FBDD5500A84CA0 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		6A1EAA2F23FBDD5500A84CA0 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		6A1EAA3323FBDD8800A84CA0 /* MoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
-		6A1EAA3423FBDD8800A84CA0 /* MoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		6A25650B2430CA47002623AE /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A25650D2430D804002623AE /* MoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		6A25650E2430D804002623AE /* MoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		6A2565102430DBB9002623AE /* PRtestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRtestTableViewController.h; sourceTree = "<group>"; };
+		6A2565112430DBB9002623AE /* PRtestTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRtestTableViewController.m; sourceTree = "<group>"; };
 		6A286364242DDF7E00BFA4E8 /* touxiang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touxiang.png; sourceTree = "<group>"; };
 		6A286368242DEB7B00BFA4E8 /* PRLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRLoginViewController.h; sourceTree = "<group>"; };
 		6A286369242DEB7B00BFA4E8 /* PRLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRLoginViewController.m; sourceTree = "<group>"; };
@@ -121,6 +132,13 @@
 		6A496D282428A93000D8FD8C /* playBTN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBTN.png; sourceTree = "<group>"; };
 		6A496D312428C24800D8FD8C /* PRHomeSleepViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRHomeSleepViewController.h; sourceTree = "<group>"; };
 		6A496D322428C24800D8FD8C /* PRHomeSleepViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRHomeSleepViewController.m; sourceTree = "<group>"; };
+		6A4A014E24309D290033ADCA /* PRUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRUser.h; sourceTree = "<group>"; };
+		6A4A014F24309D290033ADCA /* PRUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRUser.m; sourceTree = "<group>"; };
+		6A4A01532430AD500033ADCA /* PRTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRTopics.h; sourceTree = "<group>"; };
+		6A4A01542430AD500033ADCA /* PRTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRTopics.m; sourceTree = "<group>"; };
+		6A4A01562430AE9C0033ADCA /* PRTopicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRTopicTableViewCell.h; sourceTree = "<group>"; };
+		6A4A01572430AE9C0033ADCA /* PRTopicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRTopicTableViewCell.m; sourceTree = "<group>"; };
+		6A4A01582430AE9C0033ADCA /* PRTopicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRTopicTableViewCell.xib; sourceTree = "<group>"; };
 		6A6218412417846D00761815 /* preset_focus_ocean.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = preset_focus_ocean.m4a; sourceTree = "<group>"; };
 		6A6FFF502424A972001BBE85 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6A78DF2824249182008608B8 /* PRDragCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDragCardView.h; sourceTree = "<group>"; };
@@ -128,6 +146,9 @@
 		6A7BB0922424B0E50078CF81 /* PRDragConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDragConfig.h; sourceTree = "<group>"; };
 		6A7BB0942424B1CE0078CF81 /* PRDragCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDragCardCell.h; sourceTree = "<group>"; };
 		6A7BB0952424B1CE0078CF81 /* PRDragCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRDragCardCell.m; sourceTree = "<group>"; };
+		6A804851243235130084B7D6 /* PRPushTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRPushTopicViewController.h; sourceTree = "<group>"; };
+		6A804852243235130084B7D6 /* PRPushTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRPushTopicViewController.m; sourceTree = "<group>"; };
+		6A804853243235130084B7D6 /* PRPushTopicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRPushTopicViewController.xib; sourceTree = "<group>"; };
 		6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = member_daily_center_bg.jpg; sourceTree = "<group>"; };
 		6A9931D8240E0DAE000AB6AC /* image_20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_20.jpg; sourceTree = "<group>"; };
 		6A9931D9240E0DAE000AB6AC /* image_30.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_30.jpg; sourceTree = "<group>"; };
@@ -146,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A25650C2430CA47002623AE /* SDWebImage.framework in Frameworks */,
 				6A6FFF512424A972001BBE85 /* CoreGraphics.framework in Frameworks */,
 				DCF6B933A5F535D492F53273 /* Pods_PRSleepApp.framework in Frameworks */,
 			);
@@ -253,8 +275,16 @@
 		6A1EAA3223FBDD7B00A84CA0 /* More */ = {
 			isa = PBXGroup;
 			children = (
-				6A1EAA3323FBDD8800A84CA0 /* MoreViewController.h */,
-				6A1EAA3423FBDD8800A84CA0 /* MoreViewController.m */,
+				6A25650D2430D804002623AE /* MoreViewController.h */,
+				6A25650E2430D804002623AE /* MoreViewController.m */,
+				6A4A01562430AE9C0033ADCA /* PRTopicTableViewCell.h */,
+				6A4A01572430AE9C0033ADCA /* PRTopicTableViewCell.m */,
+				6A4A01582430AE9C0033ADCA /* PRTopicTableViewCell.xib */,
+				6A2565102430DBB9002623AE /* PRtestTableViewController.h */,
+				6A2565112430DBB9002623AE /* PRtestTableViewController.m */,
+				6A804851243235130084B7D6 /* PRPushTopicViewController.h */,
+				6A804852243235130084B7D6 /* PRPushTopicViewController.m */,
+				6A804853243235130084B7D6 /* PRPushTopicViewController.xib */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -262,6 +292,8 @@
 		6A286367242DE64C00BFA4E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6A4A01522430AD1D0033ADCA /* More */,
+				6A4A014D24309CFE0033ADCA /* Home */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -327,6 +359,24 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		6A4A014D24309CFE0033ADCA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6A4A014E24309D290033ADCA /* PRUser.h */,
+				6A4A014F24309D290033ADCA /* PRUser.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6A4A01522430AD1D0033ADCA /* More */ = {
+			isa = PBXGroup;
+			children = (
+				6A4A01532430AD500033ADCA /* PRTopics.h */,
+				6A4A01542430AD500033ADCA /* PRTopics.m */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		6A4BC488240FDD72006DE658 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +412,7 @@
 		78290F604F3A5B14981CAFF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A25650B2430CA47002623AE /* SDWebImage.framework */,
 				6A6FFF502424A972001BBE85 /* CoreGraphics.framework */,
 				F014DB7583B87883229E29CC /* Pods_PRSleepApp.framework */,
 			);
@@ -450,6 +501,7 @@
 				6A286385242DEEAF00BFA4E8 /* New.png in Resources */,
 				6A2EF7D823FBF780001522FA /* iconClockSlected.png in Resources */,
 				6A28637E242DEEAF00BFA4E8 /* login_bg@2x.jpg in Resources */,
+				6A804855243235130084B7D6 /* PRPushTopicViewController.xib in Resources */,
 				6A286381242DEEAF00BFA4E8 /* login_textfield.png in Resources */,
 				6A9931E0240E5E58000AB6AC /* tranlcent.png in Resources */,
 				6AE30C01242B57E000A5B9BB /* image_3.jpg in Resources */,
@@ -476,6 +528,7 @@
 				6A286380242DEEAF00BFA4E8 /* Failed.png in Resources */,
 				6A2EF7E223FBF91B001522FA /* iconMoreSelected.png in Resources */,
 				6A286384242DEEAF00BFA4E8 /* login_btn_blue_nor@2x.png in Resources */,
+				6A4A015A2430AE9C0033ADCA /* PRTopicTableViewCell.xib in Resources */,
 				6AE30BFF242B57E000A5B9BB /* image_2.jpg in Resources */,
 				6A9931DB240E0DAE000AB6AC /* image_20.jpg in Resources */,
 			);
@@ -532,14 +585,19 @@
 			files = (
 				6A1EAA1123FBC79900A84CA0 /* AppDelegate.m in Sources */,
 				6A1EAA2223FBC79B00A84CA0 /* main.m in Sources */,
+				6A804854243235130084B7D6 /* PRPushTopicViewController.m in Sources */,
 				6A1EAA3023FBDD5500A84CA0 /* MineViewController.m in Sources */,
 				6A1EAA2C23FBDD0F00A84CA0 /* HomeViewController.m in Sources */,
+				6A4A015024309D290033ADCA /* PRUser.m in Sources */,
+				6A4A01592430AE9C0033ADCA /* PRTopicTableViewCell.m in Sources */,
 				6A28636A242DEB7B00BFA4E8 /* PRLoginViewController.m in Sources */,
+				6A4A01552430AD500033ADCA /* PRTopics.m in Sources */,
 				6A32E25F2427460100C75151 /* PRFateCell.m in Sources */,
+				6A25650F2430D804002623AE /* MoreViewController.m in Sources */,
 				6A78DF2A24249182008608B8 /* PRDragCardView.m in Sources */,
 				6A7BB0962424B1CE0078CF81 /* PRDragCardCell.m in Sources */,
 				6A496D332428C24800D8FD8C /* PRHomeSleepViewController.m in Sources */,
-				6A1EAA3523FBDD8800A84CA0 /* MoreViewController.m in Sources */,
+				6A2565122430DBB9002623AE /* PRtestTableViewController.m in Sources */,
 				6A1EAA1A23FBC79900A84CA0 /* PRSleepApp.xcdatamodeld in Sources */,
 				6A28639A242F3D7700BFA4E8 /* PRSignupViewController.m in Sources */,
 				6AC6D9472429B29D00FF3479 /* PRDataPicker.m in Sources */,

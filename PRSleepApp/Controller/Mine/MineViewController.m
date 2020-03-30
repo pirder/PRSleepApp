@@ -166,7 +166,7 @@
     if (indexPath.section == 0) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"userinfo"];
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(12, 10, 60, 60)];
-// 投降处理
+// 头像处理
           AVQuery *userQuery = [AVUser query];
         [userQuery whereKey:@"username" equalTo:name];
         [userQuery getFirstObjectInBackgroundWithBlock:^(AVObject * _Nullable object, NSError * _Nullable error) {
