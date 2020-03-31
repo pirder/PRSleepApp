@@ -10,7 +10,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "PRTopics.h"
 #import "PRTopicTableViewCell.h"
-#import "PRtestTableViewController.h"
+#import <PRPushTopicViewController.h>
 @interface MoreViewController ()
 @property (nonatomic,strong)NSMutableArray <PRTopics *> *topicsArr;
 
@@ -28,7 +28,7 @@
     [self setNavigationIterm];
     
     //刷新控件
-    //    [self setUpRefresh];
+        [self setUpRefresh];
     
     //     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     //     backView.backgroundColor = [UIColor whiteColor];
@@ -40,6 +40,7 @@
     [super viewWillAppear:YES];
     [self.topicsArr removeAllObjects];
     [self queryTopics];
+    [self.tableView reloadData];
     
 }
 -(void)queryTopics{
@@ -59,36 +60,57 @@
          [self.tableView reloadData];
     }];
    
-    NSLog(@"%d",self.topicsArr.count);
+//    NSLog(@"%d",self.topicsArr.count);
 }
 
 -(void)setNavigationIterm{
 
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发新机ing" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessageAbout)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发心经" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessageAbout)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"加好友" style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
     //    [self setUpCenterTitle];
 }
+-(void)sendMessageAbout{
+    PRPushTopicViewController *signup = [[PRPushTopicViewController alloc]init];
+    [signup setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [signup setModalPresentationStyle:UIModalPresentationFullScreen];
+    //    [signup setDelegate:self];
+    [self presentViewController:signup animated:YES completion:nil];
+}
+-(void)addFriends{
+ 
 
-//-(void)setUpRefresh{
-//    //下拉刷新
-//    UIRefreshControl *refreshController = [[UIRefreshControl alloc]init];
-//    [self.tableView addSubview:refreshController];
-//
-//    //监听
-//    [refreshController addTarget:self action:@selector(refreshControlStateChange:) forControlEvents:UIControlEventValueChanged];
-//    //刷新状态
-//    [refreshController beginRefreshing];
-//
-//    //加载数据
-//    [self refreshControlStateChange:refreshController];
-//
-//    //上拉控件
+}
+
+
+//-(void)sendMessageAbout{
+//    PRPushTopicViewController *vc = [[PRPushTopicViewController alloc]init];
+//    [vc setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//    [vc setModalPresentationStyle:UIModalPresentationFullScreen];
+//    [self presentViewController:vc animated:YES completion:nil];
 //}
 
-//-(void) refreshControlStateChange:(UIRefreshControl *)refreshControl{
-//    //    self load
-//}
+-(void)setUpRefresh{
+    //下拉刷新
+    UIRefreshControl *refreshController = [[UIRefreshControl alloc]init];
+    [self.tableView addSubview:refreshController];
+
+    //监听
+    [refreshController addTarget:self action:@selector(refreshControlStateChange:) forControlEvents:UIControlEventValueChanged];
+    //刷新状态
+    [refreshController beginRefreshing];
+
+    //加载数据
+    [self refreshControlStateChange:refreshController];
+
+    //上拉控件
+}
+
+-(void) refreshControlStateChange:(UIRefreshControl *)refreshControl{
+    [self.tableView reloadData];
+//    sleep(1);
+    [refreshControl endRefreshing];
+}
 
 
 //-(void)setUpCenterTitle{
@@ -116,13 +138,7 @@
  // Pass the selected object to the new view controller.
  }
  */
--(void)sendMessageAbout{
-    PRtestTableViewController *signup = [[PRtestTableViewController alloc]init];
-    [signup setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-    [signup setModalPresentationStyle:UIModalPresentationFullScreen];
-//    [signup setDelegate:self];
-    [self presentViewController:signup animated:YES completion:nil];
-}
+
 #pragma mark -加载数据
 -(void)loadNewStatuses:(UIRefreshControl *)refreshControl{
     /*
@@ -137,7 +153,7 @@
 
 #pragma mark --shuju
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"%d",self.topicsArr.count);
+//    NSLog(@"%d",self.topicsArr.count);
     return  self.topicsArr.count;
 }
 

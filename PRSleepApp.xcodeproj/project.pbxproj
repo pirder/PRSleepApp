@@ -19,7 +19,6 @@
 		6A1EAA3023FBDD5500A84CA0 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1EAA2F23FBDD5500A84CA0 /* MineViewController.m */; };
 		6A25650C2430CA47002623AE /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A25650B2430CA47002623AE /* SDWebImage.framework */; };
 		6A25650F2430D804002623AE /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A25650E2430D804002623AE /* MoreViewController.m */; };
-		6A2565122430DBB9002623AE /* PRtestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2565112430DBB9002623AE /* PRtestTableViewController.m */; };
 		6A286365242DDF7E00BFA4E8 /* touxiang.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A286364242DDF7E00BFA4E8 /* touxiang.png */; };
 		6A28636A242DEB7B00BFA4E8 /* PRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A286369242DEB7B00BFA4E8 /* PRLoginViewController.m */; };
 		6A286379242DEEAF00BFA4E8 /* login_btn_blue_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A28636C242DEEAD00BFA4E8 /* login_btn_blue_press@2x.png */; };
@@ -93,8 +92,6 @@
 		6A25650B2430CA47002623AE /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A25650D2430D804002623AE /* MoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		6A25650E2430D804002623AE /* MoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
-		6A2565102430DBB9002623AE /* PRtestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRtestTableViewController.h; sourceTree = "<group>"; };
-		6A2565112430DBB9002623AE /* PRtestTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRtestTableViewController.m; sourceTree = "<group>"; };
 		6A286364242DDF7E00BFA4E8 /* touxiang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touxiang.png; sourceTree = "<group>"; };
 		6A286368242DEB7B00BFA4E8 /* PRLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRLoginViewController.h; sourceTree = "<group>"; };
 		6A286369242DEB7B00BFA4E8 /* PRLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRLoginViewController.m; sourceTree = "<group>"; };
@@ -277,11 +274,6 @@
 			children = (
 				6A25650D2430D804002623AE /* MoreViewController.h */,
 				6A25650E2430D804002623AE /* MoreViewController.m */,
-				6A4A01562430AE9C0033ADCA /* PRTopicTableViewCell.h */,
-				6A4A01572430AE9C0033ADCA /* PRTopicTableViewCell.m */,
-				6A4A01582430AE9C0033ADCA /* PRTopicTableViewCell.xib */,
-				6A2565102430DBB9002623AE /* PRtestTableViewController.h */,
-				6A2565112430DBB9002623AE /* PRtestTableViewController.m */,
 				6A804851243235130084B7D6 /* PRPushTopicViewController.h */,
 				6A804852243235130084B7D6 /* PRPushTopicViewController.m */,
 				6A804853243235130084B7D6 /* PRPushTopicViewController.xib */,
@@ -381,8 +373,19 @@
 			isa = PBXGroup;
 			children = (
 				6A496D2A2428ACE900D8FD8C /* Home */,
+				6A804856243378A60084B7D6 /* More */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6A804856243378A60084B7D6 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				6A4A01562430AE9C0033ADCA /* PRTopicTableViewCell.h */,
+				6A4A01572430AE9C0033ADCA /* PRTopicTableViewCell.m */,
+				6A4A01582430AE9C0033ADCA /* PRTopicTableViewCell.xib */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 		6A9931D6240E0D93000AB6AC /* HomeImage */ = {
@@ -597,7 +600,6 @@
 				6A78DF2A24249182008608B8 /* PRDragCardView.m in Sources */,
 				6A7BB0962424B1CE0078CF81 /* PRDragCardCell.m in Sources */,
 				6A496D332428C24800D8FD8C /* PRHomeSleepViewController.m in Sources */,
-				6A2565122430DBB9002623AE /* PRtestTableViewController.m in Sources */,
 				6A1EAA1A23FBC79900A84CA0 /* PRSleepApp.xcdatamodeld in Sources */,
 				6A28639A242F3D7700BFA4E8 /* PRSignupViewController.m in Sources */,
 				6AC6D9472429B29D00FF3479 /* PRDataPicker.m in Sources */,

@@ -15,7 +15,7 @@
     PRTopics * topics = [[PRTopics alloc] init];
     
     topics.objectId =[obj objectForKey:@"objectId"];
-    NSLog(@"%@",[obj objectForKey:@"objectId"]);
+//    NSLog(@"%@",[obj objectForKey:@"objectId"]);
    
     AVUser *owner =[obj objectForKey:@"owner"];
     topics.name =owner.username;
@@ -24,7 +24,7 @@
     AVFile *userAvatar = [owner objectForKey:@"imageHead"];
     if (userAvatar) {
         topics.avatarUrl = userAvatar.url;
-        NSLog(@"头像地址%@",userAvatar.url);
+//        NSLog(@"头像地址%@",userAvatar.url);
     }
     
     NSDate *createdAt = [obj objectForKey:@"createdAt"];
@@ -38,8 +38,8 @@
     AVFile *file = [obj objectForKey:@"topicImage"];
     topics.topicImageUrl = file.url;
     
-    NSLog(@"%@",file.url);
-    NSLog(@"%@",topics);
+//    NSLog(@"%@",file.url);
+//    NSLog(@"%@",topics);
     return topics;
 }
 
@@ -49,9 +49,9 @@
     
     // cell高度 = 187+加文字高度
     _cellHeight = 225;
-    CGSize labelSize =[self getSizeWithStr:self.title Width:[[UIScreen mainScreen] bounds].size.width-73 Font:11];//73
+    CGSize labelSize =[self getSizeWithStr:self.title Width:[[UIScreen mainScreen] bounds].size.width-56 Font:15];//73
     _cellHeight+= labelSize.height;
-    NSLog(@"%d",_cellHeight);
+//    NSLog(@"%d",_cellHeight);
     return _cellHeight;
 }
 
