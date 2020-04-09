@@ -29,7 +29,7 @@
 @end
 
 
-// 最多只显示3个
+// 最多只显示4个
 static const CGFloat kBoundaryRatio = 0.5f;
 static const CGFloat kFirstCardScale  = 1.08f;
 static const CGFloat kSecondCardScale = 1.04f;
@@ -38,7 +38,7 @@ static const CGFloat kCellWidthEdage = 16.0f;
 // 与下一张图片的宽度差
 static const CGFloat kContainerEdage = 16.0f;
 // 显示数量
-static const CGFloat kVisibleCount = 3;
+static const CGFloat kVisibleCount = 4;
 
 
 @implementation PRDragCardView

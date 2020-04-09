@@ -11,6 +11,7 @@
 #import "PRTopics.h"
 #import "PRTopicTableViewCell.h"
 #import <PRPushTopicViewController.h>
+#import "PRDanMaViewController.h"
 @interface MoreViewController ()
 @property (nonatomic,strong)NSMutableArray <PRTopics *> *topicsArr;
 
@@ -21,14 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"论坛";
+    self.navigationItem.title = @"心经站";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     [self setNavigationIterm];
     
     //刷新控件
-        [self setUpRefresh];
+    [self setUpRefresh];
     
     //     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     //     backView.backgroundColor = [UIColor whiteColor];
@@ -67,7 +68,7 @@
 
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发心经" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessageAbout)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"加好友" style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"聊天" style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
     //    [self setUpCenterTitle];
 }
 -(void)sendMessageAbout{
@@ -78,8 +79,19 @@
     [self presentViewController:signup animated:YES completion:nil];
 }
 -(void)addFriends{
- 
-
+    if([AVUser currentUser]){
+        NSLog(@"弹幕聊天室");
+        PRDanMaViewController *danma = [[PRDanMaViewController alloc]init];
+        self.definesPresentationContext = YES;
+        [danma setModalPresentationStyle:UIModalPresentationOverFullScreen];
+        [danma setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [self presentViewController:danma animated:YES completion:nil];
+    }else{
+        UITabBarController *tabbarCtrl = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
+        //    UINavigationController *navCtrl = tabbarCtrl.selectedViewController;
+        [tabbarCtrl setSelectedIndex:2];
+    }
+   
 }
 
 
@@ -174,6 +186,10 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%d",indexPath.row);
+    NSLog(@"%@",self.topicsArr[indexPath.row]);
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.topicsArr[indexPath.row].cellHeight;

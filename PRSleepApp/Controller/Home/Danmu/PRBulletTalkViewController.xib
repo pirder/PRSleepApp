@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PRBulletTalkViewController">
+            <connections>
+                <outlet property="chatronnName" destination="jDm-aU-lSZ" id="xFp-GB-A87"/>
+                <outlet property="sendmagTextF" destination="grf-5m-Tc2" id="FxW-FB-PiG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="feg-fU-vHq">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                </imageView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grf-5m-Tc2">
+                    <rect key="frame" x="16" y="623" width="287" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LQ8-7D-87Z"/>
+                        <constraint firstAttribute="width" constant="287" id="zL4-Xh-HFM"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ne-lH-yIL">
+                    <rect key="frame" x="313" y="623" width="46" height="30"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Ip1-7N-Gfv"/>
+                        <constraint firstAttribute="width" constant="46" id="Uz4-Wg-Ebo"/>
+                    </constraints>
+                    <state key="normal" title="发送">
+                        <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="sendBtn:" destination="-1" eventType="touchUpInside" id="SIs-UH-tCv"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDm-aU-lSZ">
+                    <rect key="frame" x="147.5" y="69" width="80" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Zdr-l4-4ib"/>
+                        <constraint firstAttribute="width" constant="80" id="wEx-ce-Y1J"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jDm-aU-lSZ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="49" id="7p2-WW-eUQ"/>
+                <constraint firstItem="grf-5m-Tc2" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="16" id="93Y-n2-U6H"/>
+                <constraint firstItem="5Ne-lH-yIL" firstAttribute="leading" secondItem="grf-5m-Tc2" secondAttribute="trailing" constant="10" id="9xn-of-pdJ"/>
+                <constraint firstItem="feg-fU-vHq" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="AIN-AI-964"/>
+                <constraint firstItem="feg-fU-vHq" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="Fs9-ba-kyS"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="feg-fU-vHq" secondAttribute="bottom" id="Kzk-uj-KS4"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="5Ne-lH-yIL" secondAttribute="trailing" constant="16" id="PEg-tJ-U2e"/>
+                <constraint firstItem="feg-fU-vHq" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="Tgb-3E-vcX"/>
+                <constraint firstItem="jDm-aU-lSZ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="147.5" id="cNe-Ww-AM3"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="grf-5m-Tc2" secondAttribute="bottom" constant="14" id="wGk-Im-JGG"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="5Ne-lH-yIL" secondAttribute="bottom" constant="14" id="ziv-VG-3QJ"/>
+                <constraint firstItem="jDm-aU-lSZ" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="zwg-5G-tXx"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-482.39999999999998" y="-177.66116941529236"/>
+        </view>
+        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="q5g-LU-yrQ">
+            <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <nil key="textColor"/>
+            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+            <textInputTraits key="textInputTraits"/>
+            <point key="canvasLocation" x="200" y="-85"/>
+        </textField>
+    </objects>
+    <resources>
+        <image name="image_3.jpg" width="1741" height="3096"/>
+    </resources>
+</document>

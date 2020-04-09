@@ -9,8 +9,9 @@
 #import "MineViewController.h"
 #import "PRLoginViewController.h"
 #import "HomeViewController.h"
+#import "UserFeedBackViewController.h"
 #import <AVOSCloud.h>
-
+#import "PRMyTopicTableViewController.h"
 #define curuser  [AVUser currentUser]
 
 
@@ -162,7 +163,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    
+    //取消被选中效果
+    cell.selectionStyle =UITableViewCellSelectionStyleNone;
     if (indexPath.section == 0) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"userinfo"];
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(12, 10, 60, 60)];
@@ -174,10 +176,16 @@
            //     NSLog(@"%@",object);
                // NSLog(@"%@",[[object objectForKey:@"imageHead"] objectForKey:@"url"]);
                 NSString *surl = [[object objectForKey:@"imageHead"] objectForKey:@"url"];
-                AVFile *file = [AVFile fileWithRemoteURL:[NSURL URLWithString:surl]];
-               [file getThumbnail:YES width:60 height:60 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
-                    imageView.image = image;
-               }];
+                if (surl) {
+                    AVFile *file = [AVFile fileWithRemoteURL:[NSURL URLWithString:surl]];
+                    [file getThumbnail:YES width:60 height:60 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+                        if (!error) {
+                            imageView.image = image;
+                        }
+                        
+                    }];
+                }
+                
             }else{
                 imageView.image = [UIImage imageNamed:@"touxiang"];
             }
@@ -206,6 +214,7 @@
         
         //退出登录
         [AVUser logOut];
+      
         NSLog(@"exit");
         //获取UserDefaults单例
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -223,11 +232,32 @@
         [login setModalPresentationStyle:UIModalPresentationOverFullScreen];
         [login setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
         [login setDelegate:self];
+        
         [self presentViewController:login animated:YES completion:nil];
-//       [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-//        [self loadView];
-//        tableView.reloadData;
+        
     }
+    
+    if (indexPath.section ==1) {
+        NSLog(@"");
+        switch (indexPath.row) {
+            case 0://我的心经
+                [self presentViewController:[[PRMyTopicTableViewController alloc]init] animated:YES completion:^{
+                    
+                }];
+                break;
+            case 1://密码管理
+                [self resetPasswordBtn];
+                break;
+            case 2://意见反馈
+                [self pushFeedBack];
+                break;
+            default:
+                //关于
+                [self alterShowLitterTitle:@"关于本APP" message:@"基于毕业设计的题目开发"];
+                break;
+        }
+    }
+//    NSLog(@"%d",indexPath.row);
 }
 
 - (void)testLoadData{
@@ -249,4 +279,47 @@
     
 }
 
+-(void)pushFeedBack{
+    
+//    [self oller:[[UserFeedBackViewController alloc]init] animated:YES];
+    [self presentViewController:[[UserFeedBackViewController alloc]init] animated:YES completion:^{
+        
+    }];
+}
+
+-(void)resetPasswordBtn{
+    UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"请输入正确的邮箱名" message:@"重置密码收到邮件及时查看修改" preferredStyle:UIAlertControllerStyleAlert];
+    [alert1 addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"输入邮箱名";
+    }];
+    [alert1 addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //
+    }]];
+    [alert1 addAction:[UIAlertAction actionWithTitle:@"发送" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSString *email = alert1.textFields.firstObject.text;
+        [AVUser requestPasswordResetForEmailInBackground:email block:^(BOOL succeeded, NSError * _Nullable error) {
+            if(succeeded){
+                [self alterShowLitterTitle:@"发送成功" message:@"请及时查看邮件"];
+            }else{
+                [self alterShowLitterTitle:@"发送失败" message:@"请再次确认邮箱"];
+            }
+        }];
+        
+    }]];
+    [self presentViewController:alert1 animated:YES completion:nil];
+}
+
+
+
+-(void)alterShowLitterTitle:(NSString *)title message:(NSString *)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    //控制提示框显示的时间为2秒
+    [self performSelector:@selector(dismiss:) withObject:alert afterDelay:2.0];
+}
+
+- (void)dismiss:(UIAlertController *)alert{
+    [alert dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -15,6 +15,7 @@
 
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (nonatomic,strong) NSData * imageData;
+@property (weak, nonatomic) IBOutlet UIButton *send;
 
 @end
 
@@ -25,6 +26,7 @@
     self.topicsTextF.delegate = self;
 //    self.topicsTextF.text = @"";
     self.navigationItem.title = @"发布新商品";
+
 //    self.topicsTextF.
 //    self.topicsTextF.placeholder = @"请在这里输入你的内容";
     // Do any additional setup after loading the view from its nib.
@@ -42,16 +44,19 @@
     
     AVFile *file = [AVFile fileWithData:self.imageData];
     [topics setObject:file forKey:@"topicImage"];
+     [self.send setEnabled:NO];
     [topics saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"发布成功");
             //提示
             [self dismissViewControllerAnimated:YES completion:nil];
             [self alertMessage:@"发布成功"];
+            [self.send setEnabled:YES];
         }else{
             NSLog(@"保存新物品出错%@",error.localizedDescription);
         }
     }];
+   
 }
 - (IBAction)cancelPushBtn:(id)sender {
     
@@ -119,6 +124,13 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     textView.text = @"";
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 

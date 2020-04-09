@@ -12,6 +12,11 @@
 #import "PRDragConfig.h"
 #import "PRHomeSleepViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "PRDanMaViewController.h"
+
+
+#import <AVOSCloudIM/AVOSCloudIM.h>
+
 ////横向比例
 #define WidthScale(number)   ([UIScreen mainScreen].bounds.size.width/375.*(number))
 ////纵向比例
@@ -56,12 +61,6 @@
     NSURL *audioUrl = [[NSBundle mainBundle]URLForResource:@"preset_focus_ocean.m4a" withExtension:nil];
     NSLog(@"播放音乐%@",audioUrl.absoluteString);
     [backimageView setImage:[UIImage imageWithData:imageData]];
-//    [backView addSubview:backImage];
-//    [[[self.navigationController.navigationBar subviews] firstObject] setAlpha:0];
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-//    self.tabBarController.navigationItem
-//    self.tabBarController.tabBar.shadowImage = [[UIImage alloc]init];
     [self.view addSubview:backimageView];
 
 }
@@ -207,22 +206,36 @@
     
     NSLog(@"点击成功");
 }
+#pragma mark 聊天室
 - (void)buttonTalk{
-    NSLog(@"论坛");
+    if([AVUser currentUser]){
+        NSLog(@"弹幕聊天室");
+        PRDanMaViewController *danma = [[PRDanMaViewController alloc]init];
+        self.definesPresentationContext = YES;
+        [danma setModalPresentationStyle:UIModalPresentationOverFullScreen];
+        [danma setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [self presentViewController:danma animated:YES completion:nil];
+    }else{
+        UITabBarController *tabbarCtrl = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
+        //    UINavigationController *navCtrl = tabbarCtrl.selectedViewController;
+        [tabbarCtrl setSelectedIndex:2];
+    }
+    
+    
 }
 
 - (void)setUI{
     [self.view addSubview:self.contentView];
     [self.view addSubview:self.topLabel];
     [self.view addSubview:self.leftBtn];
-     [self.view addSubview:self.rightBtn];
+    [self.view addSubview:self.rightBtn];
 }
 
 
 // MARK: - 请求数据
 - (void)loadData {
     [self.dataSources removeAllObjects];
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 4; i++){
         NSString *name = [NSString stringWithFormat:@"image_%d.jpg",i + 1];
         [self.dataSources addObject:name];
     }
@@ -242,19 +255,20 @@
         NSLog(@"");
     };
     return cell;
-    
-
 }
 
 - (void)residualQuantityReminder:(NSInteger)remindNumber {
+    
     if (remindNumber == 1)  {
         NSLog(@"请求数据了");
     } else if (remindNumber == 0) {
         NSLog(@"切换下一组了");
         [self loadData];
     }
+    
 }
 - (void)PRMenuDidTapOnBackground:(PRHomeSleepViewController *)sleepMenu{
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }

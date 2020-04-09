@@ -16,13 +16,13 @@ typedef enum : NSUInteger {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRFateCell : PRDragCardCell
-/** <#注释#> */
+/** 图片名 */
 @property(nonatomic, strong) NSString *imageName;
 
-/** <#注释#> */
+/** 选择回调 */
 @property(nonatomic, copy) void(^seeClickBlcok)(void);
 
-/** 注释 */
+/** cell的x类型 */
 @property(nonatomic, assign) FateCellType type;
 
 + (id)hw_loadViewFromNib;
