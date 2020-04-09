@@ -238,7 +238,6 @@
     }
     
     if (indexPath.section ==1) {
-        NSLog(@"");
         switch (indexPath.row) {
             case 0://我的心经
                 [self presentViewController:[[PRMyTopicTableViewController alloc]init] animated:YES completion:^{

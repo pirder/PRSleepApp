@@ -29,7 +29,7 @@
     [self setNavigationIterm];
     
     //刷新控件
-    [self setUpRefresh];
+        [self setUpRefresh];
     
     //     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     //     backView.backgroundColor = [UIColor whiteColor];

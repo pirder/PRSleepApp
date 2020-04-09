@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+  
     self.chatronnName.text = self.chatroom.name;
     
     [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(test:) userInfo:nil repeats:YES];
@@ -120,11 +122,27 @@
 //}
 
 
+
 ///
 -(void)edgePan:(UIPanGestureRecognizer *)recognizer{
     [self dismissViewControllerAnimated:YES completion:^{
         [self didClickStop];
     }];
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)noti
+{
+    CGFloat duration = [noti.userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+    CGRect frame = [noti.userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    CGFloat offsetY = frame.origin.y - self.view.frame.size.height;
+    [UIView animateWithDuration:duration animations:^{
+        self.view.transform = CGAffineTransformMakeTranslation(0, offsetY);
+        }];
+}
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![self.sendmagTextF isExclusiveTouch]) {
+        [self.sendmagTextF  resignFirstResponder];
+    }
 }
 
 @end

@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PRPushTopicViewController : UIViewController
+@property (nonatomic,copy) NSString *title;
+@property (nonatomic,copy) NSString *topicsImageUrl;
+@property (nonatomic,copy) NSString *topID;
 
 @end
 

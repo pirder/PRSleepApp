@@ -8,6 +8,7 @@
 
 #import "PRPushTopicViewController.h"
 #import <AVOSCloud.h>
+#import <SDWebImage/SDWebImage.h>
 
 @interface PRPushTopicViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *topicsTextF;
@@ -26,7 +27,20 @@
     self.topicsTextF.delegate = self;
 //    self.topicsTextF.text = @"";
     self.navigationItem.title = @"发布新商品";
-
+    
+    self.topicsTextF.text = self.title;
+    
+    if (self.topicsImageUrl) {
+        [self.topicImageView sd_setImageWithURL:[NSURL URLWithString:self.topicsImageUrl] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
+        UIImage *image = self.topicImageView.image;
+        NSData *imageData;
+        if (UIImagePNGRepresentation(image)) {
+            imageData = UIImagePNGRepresentation(image);
+        }else{
+            imageData = UIImageJPEGRepresentation(image, 1.0);
+        }
+        self.imageData = imageData;
+    }
 //    self.topicsTextF.
 //    self.topicsTextF.placeholder = @"请在这里输入你的内容";
     // Do any additional setup after loading the view from its nib.
@@ -35,28 +49,40 @@
 
 - (IBAction)pushTopicbtn:(id)sender {
     NSString *title = self.topicsTextF.text;
-    AVObject *topics = [AVObject objectWithClassName:@"Topics"];
-    [topics setObject:title forKey:@"title"];
     
-    // owner 字段pointer；类型 指向用户表
-    AVUser *currentu = [AVUser currentUser];
-    [topics setObject:currentu forKey:@"owner"];
-    
-    AVFile *file = [AVFile fileWithData:self.imageData];
-    [topics setObject:file forKey:@"topicImage"];
-     [self.send setEnabled:NO];
-    [topics saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"发布成功");
-            //提示
-            [self dismissViewControllerAnimated:YES completion:nil];
-            [self alertMessage:@"发布成功"];
-            [self.send setEnabled:YES];
-        }else{
-            NSLog(@"保存新物品出错%@",error.localizedDescription);
-        }
-    }];
    
+    AVObject *topics = nil;
+    if (self.topID) {
+        topics = [AVObject objectWithClassName:@"Topics" objectId:self.topID];
+    }else{
+        //ADD
+        topics = [AVObject objectWithClassName:@"Topics"];
+    }
+        [topics setObject:title forKey:@"title"];
+        
+        // owner 字段pointer；类型 指向用户表
+        AVUser *currentu = [AVUser currentUser];
+        [topics setObject:currentu forKey:@"owner"];
+        
+        AVFile *file = [AVFile fileWithData:self.imageData];
+        [topics setObject:file forKey:@"topicImage"];
+        
+        [self.send setEnabled:NO];
+        
+        [topics saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                NSLog(@"发布成功");
+                //提示
+                [self dismissViewControllerAnimated:YES completion:nil];
+                [self alertMessage:@"发布成功"];
+                [self.send setEnabled:YES];
+            }else{
+                NSLog(@"保存新物品出错%@",error.localizedDescription);
+            }
+        }];
+    
+    
+    
 }
 - (IBAction)cancelPushBtn:(id)sender {
     

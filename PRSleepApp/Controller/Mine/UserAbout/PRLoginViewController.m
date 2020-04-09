@@ -14,7 +14,7 @@
 #define ScreenWidth  self.view.frame.size.width
 #define ScreenHeight self.view.frame.size.height
 
-//qq头像的宽高
+//头像的宽高
 #define  QQHeadX      (ScreenWidth-0.25*ScreenWidth)/2
 #define  QQHeadY        80
 #define QQHeadWidth     0.25*ScreenWidth

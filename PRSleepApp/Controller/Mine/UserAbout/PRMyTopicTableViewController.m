@@ -10,6 +10,8 @@
 #import "PRTopicTableViewCell.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "PRPushTopicViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 @interface PRMyTopicTableViewController ()
 
 @end
@@ -93,6 +95,11 @@
     PRPushTopicViewController *signup = [[PRPushTopicViewController alloc]init];
     [signup setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [signup setModalPresentationStyle:UIModalPresentationFullScreen];
+    
+    [signup setTitle:self.topicsArr[indexPath.row].title];
+    [signup setTopID:self.topicsArr[indexPath.row].objectId];
+    [signup setTopicsImageUrl:self.topicsArr[indexPath.row].topicImageUrl];
+    
     [self presentViewController:signup animated:YES completion:nil];
     
     
@@ -107,8 +114,13 @@
 //    }];
     
     UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        NSString *OId = self.topicsArr[indexPath.row].objectId;
         
+        AVObject *todo = [AVObject objectWithClassName:@"Topics" objectId:OId];
+        [todo deleteInBackground];
         [self.topicsArr removeObjectAtIndex:indexPath.row];
+       
+        
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
     }];
