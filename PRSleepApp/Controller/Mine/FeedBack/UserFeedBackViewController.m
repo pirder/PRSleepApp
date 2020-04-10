@@ -202,8 +202,6 @@
         _textView.layer.borderWidth = 0.5;
         _textView.placeholderColor = RGBCOLOR(0x89, 0x89, 0x89);
         _textView.placeholder = @"写下你遇到的问题，或告诉我们你的宝贵意见~";
-       
-        
     }
     
     return _textView;

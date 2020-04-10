@@ -11,7 +11,9 @@
 #import "PRBulletManager.h"
 #import <AVOSCloudIM/AVOSCloudIM.h>
 
-@interface PRBulletTalkViewController ()
+@interface PRBulletTalkViewController (){
+    NSTimer *time;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *sendmagTextF;
 @property (weak, nonatomic) IBOutlet UILabel *chatronnName;
@@ -23,11 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
   
     self.chatronnName.text = self.chatroom.name;
     
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(test:) userInfo:nil repeats:YES];
+    time = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(test:) userInfo:nil repeats:YES];
     
     self.manager = [[PRBulletManager alloc] init];
     __weak typeof(self)weakSelf = self;
@@ -74,7 +76,8 @@
     [self.chatroom sendMessage:message callback:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"发送成功加入数组");
-            //            [self.manager.dataSource addObject:messageStr];
+            [self.manager stop];
+            [self.manager start];
         }
     }];
     self.sendmagTextF.text = nil;
@@ -127,6 +130,10 @@
 -(void)edgePan:(UIPanGestureRecognizer *)recognizer{
     [self dismissViewControllerAnimated:YES completion:^{
         [self didClickStop];
+        [self.chatroom quitWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
+            [time invalidate];
+        }];
+        
     }];
 }
 
@@ -134,7 +141,7 @@
 {
     CGFloat duration = [noti.userInfo[@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
     CGRect frame = [noti.userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
-    CGFloat offsetY = frame.origin.y - self.view.frame.size.height;
+    CGFloat offsetY = frame.origin.y - self.view.frame.size.height;
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformMakeTranslation(0, offsetY);
         }];

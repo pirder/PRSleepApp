@@ -31,7 +31,7 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
 //    self.window.hidden = NO;
-    self.window.backgroundColor = [UIColor blackColor];
+    self.window.backgroundColor = [UIColor whiteColor];
     self.window.hidden = NO;
     //1
     HomeViewController *VC1 = [[HomeViewController alloc]init];

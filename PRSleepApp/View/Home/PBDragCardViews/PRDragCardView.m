@@ -36,7 +36,7 @@ static const CGFloat kSecondCardScale = 1.04f;
 // 与下一张图片的高度差
 static const CGFloat kCellWidthEdage = 16.0f;
 // 与下一张图片的宽度差
-static const CGFloat kContainerEdage = 16.0f;
+//static const CGFloat kContainerEdage = 16.0f;
 // 显示数量
 static const CGFloat kVisibleCount = 4;
 
@@ -204,7 +204,7 @@ static const CGFloat kVisibleCount = 4;
             //  ratio用来判断是否显示图片中的"Like"或"DisLike"状态, 用开发者限定多少比例显示或设置透明度
             //  ---------------------------------------------------------------------------------------------
             float widthRatio = (gesture.view.center.x - self.cardCenter.x) / self.cardCenter.x;
-            float heightRatio = (gesture.view.center.y - self.cardCenter.y) / self.cardCenter.y;
+//            float heightRatio = (gesture.view.center.y - self.cardCenter.y) / self.cardCenter.y;
             // Moving
             [self judgeMovingState: widthRatio];
             //  ----------------------------------------

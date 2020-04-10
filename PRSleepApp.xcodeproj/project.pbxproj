@@ -61,6 +61,7 @@
 		6A7BB0962424B1CE0078CF81 /* PRDragCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BB0952424B1CE0078CF81 /* PRDragCardCell.m */; };
 		6A804854243235130084B7D6 /* PRPushTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A804852243235130084B7D6 /* PRPushTopicViewController.m */; };
 		6A804855243235130084B7D6 /* PRPushTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A804853243235130084B7D6 /* PRPushTopicViewController.xib */; };
+		6A9587D22440534C00B61EC3 /* 2.4意见反馈_03(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9587D12440534C00B61EC3 /* 2.4意见反馈_03(1).png */; };
 		6A9931DA240E0DAE000AB6AC /* member_daily_center_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */; };
 		6A9931DB240E0DAE000AB6AC /* image_20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D8240E0DAE000AB6AC /* image_20.jpg */; };
 		6A9931DC240E0DAE000AB6AC /* image_30.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D9240E0DAE000AB6AC /* image_30.jpg */; };
@@ -160,6 +161,7 @@
 		6A804851243235130084B7D6 /* PRPushTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRPushTopicViewController.h; sourceTree = "<group>"; };
 		6A804852243235130084B7D6 /* PRPushTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRPushTopicViewController.m; sourceTree = "<group>"; };
 		6A804853243235130084B7D6 /* PRPushTopicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRPushTopicViewController.xib; sourceTree = "<group>"; };
+		6A9587D12440534C00B61EC3 /* 2.4意见反馈_03(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2.4意见反馈_03(1).png"; sourceTree = "<group>"; };
 		6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = member_daily_center_bg.jpg; sourceTree = "<group>"; };
 		6A9931D8240E0DAE000AB6AC /* image_20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_20.jpg; sourceTree = "<group>"; };
 		6A9931D9240E0DAE000AB6AC /* image_30.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_30.jpg; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 		6A28636B242DEE9500BFA4E8 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				6A9587D12440534C00B61EC3 /* 2.4意见反馈_03(1).png */,
 				6A286373242DEEAE00BFA4E8 /* Failed.png */,
 				6A286376242DEEAE00BFA4E8 /* login_bg_ip5@2x.jpg */,
 				6A286372242DEEAE00BFA4E8 /* login_bg.jpg */,
@@ -507,11 +510,11 @@
 		6AE99B3F243F35C7007483CC /* UserAbout */ = {
 			isa = PBXGroup;
 			children = (
-				6A286399242F3D7700BFA4E8 /* PRSignupViewController.xib */,
 				6A286368242DEB7B00BFA4E8 /* PRLoginViewController.h */,
 				6A286369242DEB7B00BFA4E8 /* PRLoginViewController.m */,
 				6A286397242F3D7700BFA4E8 /* PRSignupViewController.h */,
 				6A286398242F3D7700BFA4E8 /* PRSignupViewController.m */,
+				6A286399242F3D7700BFA4E8 /* PRSignupViewController.xib */,
 				6AE99B40243F3946007483CC /* PRMyTopicTableViewController.h */,
 				6AE99B41243F3946007483CC /* PRMyTopicTableViewController.m */,
 			);
@@ -644,6 +647,7 @@
 				6A2EF7E223FBF91B001522FA /* iconMoreSelected.png in Resources */,
 				6A286384242DEEAF00BFA4E8 /* login_btn_blue_nor@2x.png in Resources */,
 				6A4A015A2430AE9C0033ADCA /* PRTopicTableViewCell.xib in Resources */,
+				6A9587D22440534C00B61EC3 /* 2.4意见反馈_03(1).png in Resources */,
 				6AE30BFF242B57E000A5B9BB /* image_1.jpg in Resources */,
 				6A9931DB240E0DAE000AB6AC /* image_20.jpg in Resources */,
 			);

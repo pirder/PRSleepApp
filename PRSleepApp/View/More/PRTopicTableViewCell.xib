@@ -103,7 +103,7 @@
                 <outlet property="title" destination="iBf-UB-NeN" id="p6c-qr-gVr"/>
                 <outlet property="topicsImageView" destination="Q1G-WE-QlA" id="rwi-Qa-FOR"/>
             </connections>
-            <point key="canvasLocation" x="169.59999999999999" y="121.4392803598201"/>
+            <point key="canvasLocation" x="-10" y="11"/>
         </tableViewCell>
     </objects>
 </document>

@@ -35,6 +35,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -42,6 +43,7 @@
     [self.topicsArr removeAllObjects];
     [self queryTopics];
     [self.tableView reloadData];
+    
     
 }
 -(void)queryTopics{
@@ -68,8 +70,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+  
     //    NSLog(@"%d",self.topicsArr.count);
     return  self.topicsArr.count;
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -86,12 +91,14 @@
     PRTopicTableViewCell *cell = [PRTopicTableViewCell cellWithTableView:tableView];
     //    [cell setTopic: self.topicsArr[indexPath.row] ];
     cell.topic = self.topicsArr[indexPath.row];
+//    if (self.topicsArr.count == 0) {
+//        [self alterShowLitterTitle:@"你没有发过任何心经喔" message:@"赶紧去发一条试试吧"];
+//    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%d",indexPath.row);
-    NSLog(@"%@",self.topicsArr[indexPath.row].title);
+//    NSLog(@"%@",self.topicsArr[indexPath.row].title);
     PRPushTopicViewController *signup = [[PRPushTopicViewController alloc]init];
     [signup setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [signup setModalPresentationStyle:UIModalPresentationFullScreen];
@@ -188,7 +195,16 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+ */
+-(void)alterShowLitterTitle:(NSString *)title message:(NSString *)message{
+     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+     [self presentViewController:alert animated:YES completion:nil];
+     //控制提示框显示的时间为2秒
+     [self performSelector:@selector(dismiss:) withObject:alert afterDelay:2.0];
+ }
+- (void)dismiss:(UIAlertController *)alert{
+    [alert dismissViewControllerAnimated:YES completion:nil];
+}
 -(void)edgePan:(UIPanGestureRecognizer *)recognizer{
     [self dismissViewControllerAnimated:YES completion:^{
     }];

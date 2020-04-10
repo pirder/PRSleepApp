@@ -58,23 +58,22 @@
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"创建一个新的聊天室" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         
-        UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"Input a Name" message:@"for ChatRoom" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"请输入名字" message:@"创建聊天室" preferredStyle:UIAlertControllerStyleAlert];
         [alert1 addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = @"ChatRoom's Name";
+            textField.placeholder = @"聊天室的名字";
         }];
-        [alert1 addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [alert1 addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             //
         }]];
-        [alert1 addAction:[UIAlertAction actionWithTitle:@"Create" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alert1 addAction:[UIAlertAction actionWithTitle:@"创建" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             //创建聊天室具体操作
             NSString *name = alert1.textFields.firstObject.text;
             
-            
             [self.tom createChatRoomWithName:name attributes:nil callback:^(AVIMChatRoom * _Nullable chatRoom, NSError * _Nullable error) {
                 if (chatRoom && !error) {
-                    AVIMTextMessage *textMessage = [AVIMTextMessage messageWithText:@"" attributes:nil];
-                    [chatRoom sendMessage:textMessage callback:^(BOOL succeeded, NSError * _Nullable error) {
+                    AVIMTextMessage *textMessage = [AVIMTextMessage messageWithText:nil attributes:nil];
+                    [chatRoom sendMessage:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
                         if (succeeded && !error) {
                             ///加进入数组
                             [self.chatarr addObject:chatRoom];
@@ -158,34 +157,22 @@
 }
 
 -(void)queryRecentChatRooms{
-    
+
     AVIMConversationQuery *query = [self.tom conversationQuery];
     [query whereKey:@"tr" equalTo:@(YES)];
-//    query.limit = 20;
-    //    [query whereKey:@"name" equalTo:@"聊天室"];
     NSLog(@"打印聊天室信息%@",query);
         [query findConversationsWithCallback:^(NSArray<AVIMConversation *> * _Nullable conversations, NSError * _Nullable error) {
-            //        for (AVIMConversation *con in conversations) {
-            //            NSLog(@"打印聊天室信息 %@",con.name);
-            //        }
-            
-            //            [self.chatarr setArray:conversations];
             if (!error) {
                 
                  self.chatarr=conversations;
             }else{
                 NSLog(@"错误信息--- %@",error);
             }
-           
             //刷新列别
         }];
     dispatch_async(dispatch_get_main_queue(), ^{
          [self.tableView reloadData];
     });
- 
-   
-   
-    
 }
 
 - (IBAction)sendMessageBtn:(id)sender {
@@ -316,18 +303,19 @@
         [self presentViewController:danma animated:YES completion:nil];
     }];
     
-    [chatroom queryMessagesFromServerWithLimit:10 callback:^(NSArray<AVIMMessage *> * _Nullable messages, NSError * _Nullable error) {
-        for (AVIMTypedMessage *mess in messages) {
-//            NSLog(@"信息为： ----%@",mess.text);
-            
-        }
-    }];
+//    [chatroom queryMessagesFromServerWithLimit:10 callback:^(NSArray<AVIMMessage *> * _Nullable messages, NSError * _Nullable error) {
+//        for (AVIMTypedMessage *mess in messages) {
+//
+//        }
+//    }];
 }
 
 ///
 -(void)edgePan:(UIPanGestureRecognizer *)recognizer{
     [self dismissViewControllerAnimated:YES completion:^{
-        
+        [self.tom closeWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
+            
+        }];
     }];
 }
 

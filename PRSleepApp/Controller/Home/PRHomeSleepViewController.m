@@ -99,7 +99,6 @@
         NSLog(@"开始倒计时.....");
     } else {
         NSLog(@"请重新设置时间....");
-//        self.labelOfRemainingTime.text = @"00:00:00";
         self.rightBtn.selected = NO;
         return;
     }
@@ -149,6 +148,7 @@
         [self presentViewController:alertController animated:YES completion:^{
             self->_timer = nil;
         }];
+        
         //提示框弹出的同时，开始响闹钟
         NSString *path = [[NSBundle mainBundle]pathForResource:@"4948.MP3" ofType:nil];
         NSURL *url = [NSURL fileURLWithPath:path];

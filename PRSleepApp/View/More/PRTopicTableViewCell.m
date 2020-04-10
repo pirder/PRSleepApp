@@ -39,7 +39,6 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     tableView.separatorStyle =UITableViewCellSeparatorStyleNone;
-    
     return cell;
 }
 - (void)setTopic:(PRTopics *)topic{
@@ -49,7 +48,6 @@
     self.title.text = topic.title;
     [self.avaterImageView sd_setImageWithURL:[NSURL URLWithString:topic.avatarUrl] placeholderImage:[UIImage imageNamed:@"not_logged_in"]];
     [self.topicsImageView sd_setImageWithURL:[NSURL URLWithString:topic.topicImageUrl] placeholderImage:[UIImage imageNamed:@"downloadFailed"]];
-    
 }
 
 @end

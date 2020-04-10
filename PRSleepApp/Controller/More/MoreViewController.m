@@ -25,6 +25,13 @@
     self.navigationItem.title = @"心经站";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+  
+    if ([[[UIDevice currentDevice] systemVersion]doubleValue]>= 7.0) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+        self.tableView.contentInsetAdjustmentBehavior = NO;
+    }
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     [self setNavigationIterm];
     
@@ -45,12 +52,11 @@
     
 }
 -(void)queryTopics{
-    
-    AVQuery *query = [AVQuery queryWithClassName:@"Topics"];
-    [query orderByDescending:@"createdAt"];
-    [query includeKey:@"owner"];
-    [query includeKey:@"topicImage"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    AVQuery *topicsQuery = [AVQuery queryWithClassName:@"Topics"];
+    [topicsQuery orderByDescending:@"createdAt"];
+    [topicsQuery includeKey:@"owner"];
+    [topicsQuery includeKey:@"topicImage"];
+    [topicsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
             for (NSDictionary *object in objects) {
                 PRTopics *top = [PRTopics initWithObject:object];
@@ -60,12 +66,9 @@
         }
          [self.tableView reloadData];
     }];
-   
-//    NSLog(@"%d",self.topicsArr.count);
 }
 
 -(void)setNavigationIterm{
-
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发心经" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessageAbout)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"聊天" style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
@@ -187,8 +190,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%d",indexPath.row);
-    NSLog(@"%@",self.topicsArr[indexPath.row]);
+//    NSLog(@"%d",indexPath.row);
+//    NSLog(@"%@",self.topicsArr[indexPath.row]);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

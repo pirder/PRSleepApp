@@ -22,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *avatarUrl;
 /** 发布日期 */
 @property (nonatomic,copy) NSString *date;
-/** 商品描述 */
+/** 心经描述 */
 @property (nonatomic,copy) NSString *title;
-/** 商品图片 */
+/** 心经图片 */
 @property (nonatomic,copy) NSString *topicImageUrl;
 /** cell 的高度 */
 @property (nonatomic, assign) CGFloat cellHeight;

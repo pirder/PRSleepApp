@@ -40,17 +40,16 @@
 
 //无法登陆？
 #define FailedX   5
-#define FailedY   0.95*ScreenHeight
+#define FailedY   0.75*ScreenHeight
 #define FailedW   80
 #define FailedH   25
 //新用户
 #define NewX   0.8*ScreenWidth
-#define NewY   0.95*ScreenHeight
+#define NewY   0.75*ScreenHeight
 #define NewW   80
 #define NewH   25
 @interface PRLoginViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,PRSignupViewControllerDelegate>
 //图片选择器协议
-
 @property (nonatomic,strong)UIButton *UserImageBtn ,   *LoginBtn,  *FailedBtn ,  *NewBtn,*LogupBtn ;
 @property(nonatomic,strong )UITextField  *accountTextField , *passwordTextField;
 
@@ -96,7 +95,7 @@
     //设置账号和密码框控件的位置，提示字符，键盘类型
     _accountTextField.textAlignment=NSTextAlignmentCenter;
     _accountTextField.placeholder=@"用户名" ;
-    _accountTextField.keyboardType=UIKeyboardTypeNumberPad;
+    _accountTextField.keyboardType=UIKeyboardTypeDefault;
     
     _passwordTextField.textAlignment=NSTextAlignmentCenter;
     _passwordTextField.placeholder=@"密码" ;

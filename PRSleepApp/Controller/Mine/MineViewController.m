@@ -18,9 +18,9 @@
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,PRLoginViewControllerDelegate>
 {
         UITableView *personalTableView;
-        NSArray *dataSource;
+        NSArray *mineOfDataSource;
         NSString *name;
-        PRLoginViewController *login ;
+        PRLoginViewController *oginViewControllerForPush ;
         BOOL isLogin;
     
 }
@@ -47,27 +47,9 @@
     personalTableView.bounces = NO;//yes，就是滚动超过边界会反弹有反弹回来的效果; NO，那么滚动到达边界会立刻停止。
     personalTableView.showsVerticalScrollIndicator = NO;//不显示右侧滑块
     personalTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
-    dataSource = @[@"我的心经",@"密码管理",@"意见反馈",@"关于"];
+    mineOfDataSource = @[@"我的心经",@"密码管理",@"意见反馈",@"关于"];
 }
-- (void)setUI{
-    //判断是否登陆，由登陆状态判断启动页面
-    //获取UserDefault
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    name = [userDefault objectForKey:@"username"];
-    
-    //如果用户未登陆则把视图控制器改变成登陆视图控制器
-//        personalTableView.hidden = YES;
-//        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-//        backView.backgroundColor = [UIColor whiteColor];
-//        [self.view addSubview:backView];
 
-        
-        //背景
-//        self.definesPresentationContext =NO;
-       
-//        personalTableView.hidden = NO;
-   
-}
 -(void)startUI{
 
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
@@ -81,11 +63,11 @@
     else{
         //未登录
         isLogin = NO;
-        login = [[PRLoginViewController alloc]init];
-        [login setModalPresentationStyle:UIModalPresentationFullScreen];
-        [login setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-        [login setDelegate:self];
-        [self presentViewController:login animated:YES completion:nil];
+        oginViewControllerForPush = [[PRLoginViewController alloc]init];
+        [oginViewControllerForPush setModalPresentationStyle:UIModalPresentationFullScreen];
+        [oginViewControllerForPush setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [oginViewControllerForPush setDelegate:self];
+        [self presentViewController:oginViewControllerForPush animated:YES completion:nil];
     }
 }
 
@@ -107,7 +89,25 @@
    
 }
 
-
+- (void)setUI{
+    //判断是否登陆，由登陆状态判断启动页面
+    //获取UserDefault
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    name = [userDefault objectForKey:@"username"];
+    
+    //如果用户未登陆则把视图控制器改变成登陆视图控制器
+    //        personalTableView.hidden = YES;
+    //        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    //        backView.backgroundColor = [UIColor whiteColor];
+    //        [self.view addSubview:backView];
+    
+    
+    //背景
+    //        self.definesPresentationContext =NO;
+    
+    //        personalTableView.hidden = NO;
+    
+}
 /*
 #pragma mark - Navigation
 
@@ -128,7 +128,7 @@
         return  1;
     }
     else if(section == 1){
-        return  dataSource.count;
+        return  mineOfDataSource.count;
     }
     else{
         return 1;
@@ -198,7 +198,7 @@
         [cell.contentView addSubview:nameLabel];
     
         }else if (indexPath.section==1){
-            cell.textLabel.text = [dataSource objectAtIndex:indexPath.row];
+            cell.textLabel.text = [mineOfDataSource objectAtIndex:indexPath.row];
             //设置Cell右边的小箭头
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -224,16 +224,16 @@
         [userDefaults synchronize];
         name=nil;
         
-        if(!login){
-        login = [[PRLoginViewController alloc]init];
+        if(!oginViewControllerForPush){
+        oginViewControllerForPush = [[PRLoginViewController alloc]init];
         }
         
         self.definesPresentationContext =NO;
-        [login setModalPresentationStyle:UIModalPresentationOverFullScreen];
-        [login setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-        [login setDelegate:self];
+        [oginViewControllerForPush setModalPresentationStyle:UIModalPresentationOverFullScreen];
+        [oginViewControllerForPush setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [oginViewControllerForPush setDelegate:self];
         
-        [self presentViewController:login animated:YES completion:nil];
+        [self presentViewController:oginViewControllerForPush animated:YES completion:nil];
         
     }
     

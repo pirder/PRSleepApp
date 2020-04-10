@@ -41,35 +41,29 @@
         }
         self.imageData = imageData;
     }
-//    self.topicsTextF.
-//    self.topicsTextF.placeholder = @"请在这里输入你的内容";
-    // Do any additional setup after loading the view from its nib.
 }
 
 
 - (IBAction)pushTopicbtn:(id)sender {
-    NSString *title = self.topicsTextF.text;
-    
-   
-    AVObject *topics = nil;
+    NSString *prTopicsTitle = self.topicsTextF.text;
+    AVObject *topicsObject = nil;
     if (self.topID) {
-        topics = [AVObject objectWithClassName:@"Topics" objectId:self.topID];
+        topicsObject = [AVObject objectWithClassName:@"Topics" objectId:self.topID];
     }else{
         //ADD
-        topics = [AVObject objectWithClassName:@"Topics"];
+        topicsObject = [AVObject objectWithClassName:@"Topics"];
     }
-        [topics setObject:title forKey:@"title"];
-        
+        [topicsObject setObject:prTopicsTitle forKey:@"title"];
         // owner 字段pointer；类型 指向用户表
         AVUser *currentu = [AVUser currentUser];
-        [topics setObject:currentu forKey:@"owner"];
+        [topicsObject setObject:currentu forKey:@"owner"];
         
         AVFile *file = [AVFile fileWithData:self.imageData];
-        [topics setObject:file forKey:@"topicImage"];
+        [topicsObject setObject:file forKey:@"topicImage"];
         
         [self.send setEnabled:NO];
         
-        [topics saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [topicsObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
                 NSLog(@"发布成功");
                 //提示
@@ -80,9 +74,6 @@
                 NSLog(@"保存新物品出错%@",error.localizedDescription);
             }
         }];
-    
-    
-    
 }
 - (IBAction)cancelPushBtn:(id)sender {
     
@@ -149,7 +140,7 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    textView.text = @"";
+//    textView.text = @"";
 }
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]) {
@@ -158,6 +149,10 @@
     }
     return YES;
 }
-
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![self.topicsTextF isExclusiveTouch]) {
+        [self.topicsTextF  resignFirstResponder];
+    }
+}
 
 @end
