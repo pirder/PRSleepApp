@@ -28,8 +28,7 @@
         _dataSource = ({
             NSMutableArray *mArr = [NSMutableArray arrayWithArray:@[
                                                                     @"欢迎来到弹幕聊天室",
-//
-                                                                    ]];
+                                                 ]];
             mArr;
         });
         

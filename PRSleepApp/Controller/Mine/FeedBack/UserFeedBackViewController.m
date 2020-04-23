@@ -9,7 +9,7 @@
 #import "UserFeedBackViewController.h"
 #import "PlaceholderTextView.h"
 #import "PhotoCollectionViewCell.h"
-
+#import  <AVOSCloud/AVOSCloud.h>
 #define kTextBorderColor     RGBCOLOR(227,224,216)
 
 #undef  RGBCOLOR
@@ -250,18 +250,36 @@
         [self isMobileNumber:self.textField.text];
         [self isValidateEmail:self.textField.text];
         //验证qq未写
-   
+       
+        
+        
         if (self.emailRight != 0 || self.phoneRight != 0) {
             
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"意见反馈" message:@"亲你的意见我们已经收到，我们会尽快处理" preferredStyle:UIAlertControllerStyleAlert];
+            AVObject *FeedBack =  [AVObject objectWithClassName:@"FeedBack"];
+            [FeedBack setObject:self.textView.text forKey:@"content"];
+            [FeedBack setObject:self.textField.text forKey:@"qqNumber"];
+            NSData *imageData;
+            if (UIImagePNGRepresentation(self.photoArrayM[0])) {
+                imageData = UIImagePNGRepresentation(self.photoArrayM[0]);
+            }else{
+                imageData = UIImageJPEGRepresentation(self.photoArrayM[0], 1.0);
+            }
+            AVFile *file = [AVFile fileWithData:imageData];
+            [FeedBack setObject:file forKey:@"SomePhoto"];
             
-            UIAlertAction *album = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [FeedBack saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"意见反馈" message:@"亲你的意见我们已经收到，我们会尽快处理" preferredStyle:UIAlertControllerStyleAlert];
                 
+                UIAlertAction *album = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:^{
+                    }];
+                }];
+                UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                [alertController addAction:album];
+                [alertController addAction:cancel];
+                [self presentViewController:alertController animated:YES completion:nil];
             }];
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-            [alertController addAction:album];
-            [alertController addAction:cancel];
-            [self presentViewController:alertController animated:YES completion:nil];
+           
         }
         else{
             UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"通知" message:@"你输入的邮箱，QQ号或者手机号错误,请重新输入" preferredStyle:UIAlertControllerStyleAlert];

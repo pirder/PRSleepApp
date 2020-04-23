@@ -83,14 +83,14 @@
         message = @"邮箱格式有误";
     }
     
-    if ([username length] < 3) {
-        if ([message length]) message = [NSString stringWithFormat:@"%@, ", message];
-        message = [NSString stringWithFormat:@"%@用户名太短啦", message];
-    }
-    if ([password length] < 6) {
-        if ([message length]) message = [NSString stringWithFormat:@"%@, ", message];
-        message = [NSString stringWithFormat:@"%@请谨慎设置密码", message];
-    }
+//    if ([username length] < 3) {
+//        if ([message length]) message = [NSString stringWithFormat:@"%@, ", message];
+//        message = [NSString stringWithFormat:@"%@用户名太短啦", message];
+//    }
+//    if ([password length] < 6) {
+//        if ([message length]) message = [NSString stringWithFormat:@"%@, ", message];
+//        message = [NSString stringWithFormat:@"%@请谨慎设置密码", message];
+//    }
     if (!phoneVerified) {
         if ([message length]) message = [NSString stringWithFormat:@"%@, ", message];
         message = [NSString stringWithFormat:@"%@Invalid phone number", message];

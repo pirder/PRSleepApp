@@ -40,22 +40,48 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initNav];
-
     [self setUI];
     [self loadData];
-    
 }
 - (void)initNav{
-   
     UIImageView *backimageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, CCWidth, CCHeight)];
     NSString *fileImage = [[NSBundle mainBundle]pathForResource:@"member_daily_left_bg" ofType:@"jpg"];
     NSData *imageData = [NSData dataWithContentsOfFile:fileImage];
-    
-    NSURL *audioUrl = [[NSBundle mainBundle]URLForResource:@"preset_focus_ocean.m4a" withExtension:nil];
-    NSLog(@"播放音乐%@",audioUrl.absoluteString);
+//    NSURL *audioUrl = [[NSBundle mainBundle]URLForResource:@"preset_focus_ocean.m4a" withExtension:nil];
+//    NSLog(@"播放音乐%@",audioUrl.absoluteString);
     [backimageView setImage:[UIImage imageWithData:imageData]];
     [self.view addSubview:backimageView];
+}
 
+- (void)setUI{
+    [self.view addSubview:self.contentView];
+    [self.view addSubview:self.topLabel];
+    [self.view addSubview:self.leftBtn];
+    [self.view addSubview:self.rightBtn];
+}
+// MARK: - 请求数据
+- (void)loadData {
+    [self.dataSources removeAllObjects];
+    for(int i = 0; i < 4; i++){
+        NSString *name = [NSString stringWithFormat:@"image_%d.jpg",i + 1];
+        [self.dataSources addObject:name];
+    }
+    [self.contentView reloadData];
+}
+
+- (NSInteger)numberOfIndragCardView:(PRDragCardView *)dragCardView{
+    return self.dataSources.count;
+}
+
+- (PRDragCardCell *)dragCardView:(PRDragCardView *)dragCardView cellForRowAtIndex:(NSInteger)index{
+    PRFateCell *cell = [PRFateCell pr_loadViewFromNib];
+    NSString *imageName = self.dataSources[index];
+    cell.type = FateCellTypeDefault;
+    cell.imageName = imageName;
+    cell.seeClickBlcok = ^{
+        NSLog(@"");
+    };
+    return cell;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -73,15 +99,17 @@
     
     int time = [currentTimeString intValue];
      NSLog(@"%d",time);
-    if (time>17&&time<=19) {
-        return @"傍晚";
-    }else if(time<=06){
-        return @"晚上";
-    } else if(time>13){
+    if (time>0&&time<=6) {
+        return @"凌晨";
+    }else if(time>6&&time<=12){
+        return @"上午";
+    }else if (time>12&&time<=17){
         return @"下午";
-    } else{
-        return @"早上";
-            }
+    }else if (time>17&&time<=19){
+        return @"傍晚";
+    }else  {
+        return @"晚上";
+    }
 }
 
 
@@ -171,42 +199,9 @@
         //    UINavigationController *navCtrl = tabbarCtrl.selectedViewController;
         [tabbarCtrl setSelectedIndex:2];
     }
-    
-    
-}
-
-- (void)setUI{
-    [self.view addSubview:self.contentView];
-    [self.view addSubview:self.topLabel];
-    [self.view addSubview:self.leftBtn];
-    [self.view addSubview:self.rightBtn];
 }
 
 
-// MARK: - 请求数据
-- (void)loadData {
-    [self.dataSources removeAllObjects];
-    for(int i = 0; i < 4; i++){
-        NSString *name = [NSString stringWithFormat:@"image_%d.jpg",i + 1];
-        [self.dataSources addObject:name];
-    }
-    [self.contentView reloadData];
-}
-
-- (NSInteger)numberOfIndragCardView:(PRDragCardView *)dragCardView{
-    return self.dataSources.count;
-}
-
-- (PRDragCardCell *)dragCardView:(PRDragCardView *)dragCardView cellForRowAtIndex:(NSInteger)index{
-    PRFateCell *cell = [PRFateCell hw_loadViewFromNib];
-    NSString *imageName = self.dataSources[index];
-    cell.type = FateCellTypeDefault;
-    cell.imageName = imageName;
-    cell.seeClickBlcok = ^{
-        NSLog(@"");
-    };
-    return cell;
-}
 
 - (void)residualQuantityReminder:(NSInteger)remindNumber {
     

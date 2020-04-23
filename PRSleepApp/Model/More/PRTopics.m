@@ -47,8 +47,8 @@
     //如果cell 的高度已经计算过,就直接返回
     if(_cellHeight) return _cellHeight;
     
-    // cell高度 = 187+加文字高度
-    _cellHeight = 225;
+    // cell高度 = 187+加文字高度 225
+    _cellHeight = 300;
     CGSize labelSize =[self getSizeWithStr:self.title Width:[[UIScreen mainScreen] bounds].size.width-56 Font:15];//73
     _cellHeight+= labelSize.height;
 //    NSLog(@"%d",_cellHeight);

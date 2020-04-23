@@ -228,7 +228,9 @@
 - (void)didTapOnBackground{
     //点击空白处，dismiss
     [self customAnimation];
-    
+    [self.timer invalidate];
+    [self.player stop];
+    self.rightBtn.hidden = YES;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3*NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
         if (self->_delegate&&[self->_delegate respondsToSelector:@selector(PRMenuDidTapOnBackground:)]) {
             [self->_delegate PRMenuDidTapOnBackground:self];
@@ -263,7 +265,8 @@
 
 - (void)PRMenuDidTapOnBackground:(PRHomeSleepViewController *)sleepMenu{
     [self dismissViewControllerAnimated:YES completion:nil];
-   
+    [self->_player stop];
+    self->_timer = nil;
 }
 
 /*

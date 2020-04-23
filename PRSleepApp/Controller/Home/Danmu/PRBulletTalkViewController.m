@@ -126,8 +126,16 @@
 
 
 
-///
+/*
+ NSTimer循环引用属于相互循环使用
+ 在控制器内，创建NSTimer作为其属性，由于定时器创建后也会强引用该控制器对象，那么该对象和定时器就相互循环引用了。
+ 如何解决呢？
+ 这里我们可以使用手动断开循环引用：
+ 如果是不重复定时器，在回调方法里将定时器invalidate并置为nil即可。
+ 如果是重复定时器，在合适的位置将其invalidate并置为nil即可
+*/
 -(void)edgePan:(UIPanGestureRecognizer *)recognizer{
+    
     [self dismissViewControllerAnimated:YES completion:^{
         [self didClickStop];
         [self.chatroom quitWithCallback:^(BOOL succeeded, NSError * _Nullable error) {

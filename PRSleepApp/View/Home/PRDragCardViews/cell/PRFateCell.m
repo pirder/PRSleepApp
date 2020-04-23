@@ -93,10 +93,9 @@
 
 
 
-+ (id)hw_loadViewFromNib {
++ (id)pr_loadViewFromNib {
     UIView *view = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
     if (view) {
-        
         return view;
     } else {
         return [[UIView alloc] init];

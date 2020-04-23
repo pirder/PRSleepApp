@@ -28,8 +28,8 @@
   
     if ([[[UIDevice currentDevice] systemVersion]doubleValue]>= 7.0) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
-//        self.automaticallyAdjustsScrollViewInsets = NO;
-        self.tableView.contentInsetAdjustmentBehavior = NO;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+//        self.tableView.contentInsetAdjustmentBehavior = NO;
     }
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
@@ -51,6 +51,7 @@
     [self.tableView reloadData];
     
 }
+//查询睡眠心经内容
 -(void)queryTopics{
     AVQuery *topicsQuery = [AVQuery queryWithClassName:@"Topics"];
     [topicsQuery orderByDescending:@"createdAt"];
@@ -71,15 +72,24 @@
 -(void)setNavigationIterm{
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发心经" style:UIBarButtonItemStylePlain target:self action:@selector(sendMessageAbout)];
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor darkGrayColor]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"聊天" style:UIBarButtonItemStylePlain target:self action:@selector(addFriends)];
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor darkGrayColor]];
+    
     //    [self setUpCenterTitle];
 }
 -(void)sendMessageAbout{
+    if([AVUser currentUser]){
     PRPushTopicViewController *signup = [[PRPushTopicViewController alloc]init];
     [signup setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [signup setModalPresentationStyle:UIModalPresentationFullScreen];
     //    [signup setDelegate:self];
     [self presentViewController:signup animated:YES completion:nil];
+    }else{
+        UITabBarController *tabbarCtrl = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController ;
+        //    UINavigationController *navCtrl = tabbarCtrl.selectedViewController;
+        [tabbarCtrl setSelectedIndex:2];
+    }
 }
 -(void)addFriends{
     if([AVUser currentUser]){

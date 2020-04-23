@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** cell的x类型 */
 @property(nonatomic, assign) FateCellType type;
 
-+ (id)hw_loadViewFromNib;
++ (id)pr_loadViewFromNib;
 @end
 
 NS_ASSUME_NONNULL_END

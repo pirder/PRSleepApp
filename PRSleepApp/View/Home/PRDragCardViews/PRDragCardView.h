@@ -21,8 +21,6 @@
 - (void)dragCardView:(PRDragCardView * _Nonnull)dragCardView
    dradDropDirection:(PRDragDropDirection)dragDropDireceton
     dragEndWithIndex:(NSInteger)index;
-
-
 /**
  点击Cell回调
  @param dragCardView dragCardView
@@ -55,11 +53,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,assign) PRDragStyle style;
 @property (nonatomic,assign) PRDragDropDirection direction;
+
 @property (nonatomic,assign) NSInteger remindNumber;
 
 
 -(instancetype)initWithFrame:(CGRect)frame style:(PRDragStyle)style;
--(void)removeFormDirection:(PRDragDropDirection)direction;
+//-(void)removeFormDirection:(PRDragDropDirection)direction;
 -(void)reloadData;
 
 @end

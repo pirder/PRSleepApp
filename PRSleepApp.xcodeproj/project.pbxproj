@@ -35,7 +35,7 @@
 		6A286384242DEEAF00BFA4E8 /* login_btn_blue_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A286377242DEEAE00BFA4E8 /* login_btn_blue_nor@2x.png */; };
 		6A286385242DEEAF00BFA4E8 /* New.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A286378242DEEAF00BFA4E8 /* New.png */; };
 		6A286391242F2A3A00BFA4E8 /* logup_btn_blue_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A286390242F2A3A00BFA4E8 /* logup_btn_blue_nor@2x.png */; };
-		6A286393242F2C5F00BFA4E8 /* image_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A286392242F2C5E00BFA4E8 /* image_4.jpg */; };
+		6A286393242F2C5F00BFA4E8 /* s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A286392242F2C5E00BFA4E8 /* s.jpg */; };
 		6A28639A242F3D7700BFA4E8 /* PRSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A286398242F3D7700BFA4E8 /* PRSignupViewController.m */; };
 		6A28639B242F3D7700BFA4E8 /* PRSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A286399242F3D7700BFA4E8 /* PRSignupViewController.xib */; };
 		6A2EF7D823FBF780001522FA /* iconClockSlected.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A2EF7D723FBF780001522FA /* iconClockSlected.png */; };
@@ -57,10 +57,17 @@
 		6A4A015A2430AE9C0033ADCA /* PRTopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A4A01582430AE9C0033ADCA /* PRTopicTableViewCell.xib */; };
 		6A6218422417846D00761815 /* preset_focus_ocean.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 6A6218412417846D00761815 /* preset_focus_ocean.m4a */; };
 		6A6FFF512424A972001BBE85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A6FFF502424A972001BBE85 /* CoreGraphics.framework */; };
+		6A78C57B24434E1D00451912 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A78C57A24434E1D00451912 /* AVOSCloud.framework */; };
+		6A78C57D24434E1D00451912 /* AVOSCloudIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A78C57C24434E1D00451912 /* AVOSCloudIM.framework */; };
+		6A78C57F24434E1D00451912 /* Pods_PRSleepApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A78C57E24434E1D00451912 /* Pods_PRSleepApp.framework */; };
 		6A78DF2A24249182008608B8 /* PRDragCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A78DF2924249182008608B8 /* PRDragCardView.m */; };
 		6A7BB0962424B1CE0078CF81 /* PRDragCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BB0952424B1CE0078CF81 /* PRDragCardCell.m */; };
 		6A804854243235130084B7D6 /* PRPushTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A804852243235130084B7D6 /* PRPushTopicViewController.m */; };
 		6A804855243235130084B7D6 /* PRPushTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A804853243235130084B7D6 /* PRPushTopicViewController.xib */; };
+		6A855D5A2451D1BA001A6663 /* start.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A855D592451D1BA001A6663 /* start.jpg */; };
+		6A855D5C2451D30E001A6663 /* icon1.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A855D5B2451D30D001A6663 /* icon1.1.png */; };
+		6A855D602451D4CB001A6663 /* sleep1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A855D5F2451D4CB001A6663 /* sleep1.jpg */; };
+		6A855D622451D5C3001A6663 /* image_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A855D612451D5C3001A6663 /* image_4.jpg */; };
 		6A9587D22440534C00B61EC3 /* 2.4意见反馈_03(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9587D12440534C00B61EC3 /* 2.4意见反馈_03(1).png */; };
 		6A9931DA240E0DAE000AB6AC /* member_daily_center_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */; };
 		6A9931DB240E0DAE000AB6AC /* image_20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6A9931D8240E0DAE000AB6AC /* image_20.jpg */; };
@@ -84,7 +91,6 @@
 		6AE99B42243F3946007483CC /* PRMyTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE99B41243F3946007483CC /* PRMyTopicTableViewController.m */; };
 		6AEAD2F62434B29D001C3FFD /* PRDanMaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEAD2F42434B29D001C3FFD /* PRDanMaViewController.m */; };
 		6AEAD2F72434B29D001C3FFD /* PRDanMaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEAD2F52434B29D001C3FFD /* PRDanMaViewController.xib */; };
-		DCF6B933A5F535D492F53273 /* Pods_PRSleepApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F014DB7583B87883229E29CC /* Pods_PRSleepApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,7 +130,7 @@
 		6A286377242DEEAE00BFA4E8 /* login_btn_blue_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn_blue_nor@2x.png"; sourceTree = "<group>"; };
 		6A286378242DEEAF00BFA4E8 /* New.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = New.png; sourceTree = "<group>"; };
 		6A286390242F2A3A00BFA4E8 /* logup_btn_blue_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logup_btn_blue_nor@2x.png"; path = "../../../../../../Desktop/logup_btn_blue_nor@2x.png"; sourceTree = "<group>"; };
-		6A286392242F2C5E00BFA4E8 /* image_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_4.jpg; sourceTree = "<group>"; };
+		6A286392242F2C5E00BFA4E8 /* s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s.jpg; sourceTree = "<group>"; };
 		6A286397242F3D7700BFA4E8 /* PRSignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRSignupViewController.h; sourceTree = "<group>"; };
 		6A286398242F3D7700BFA4E8 /* PRSignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRSignupViewController.m; sourceTree = "<group>"; };
 		6A286399242F3D7700BFA4E8 /* PRSignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRSignupViewController.xib; sourceTree = "<group>"; };
@@ -153,6 +159,9 @@
 		6A4A01582430AE9C0033ADCA /* PRTopicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRTopicTableViewCell.xib; sourceTree = "<group>"; };
 		6A6218412417846D00761815 /* preset_focus_ocean.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = preset_focus_ocean.m4a; sourceTree = "<group>"; };
 		6A6FFF502424A972001BBE85 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6A78C57A24434E1D00451912 /* AVOSCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A78C57C24434E1D00451912 /* AVOSCloudIM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AVOSCloudIM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A78C57E24434E1D00451912 /* Pods_PRSleepApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PRSleepApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A78DF2824249182008608B8 /* PRDragCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDragCardView.h; sourceTree = "<group>"; };
 		6A78DF2924249182008608B8 /* PRDragCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRDragCardView.m; sourceTree = "<group>"; };
 		6A7BB0922424B0E50078CF81 /* PRDragConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRDragConfig.h; sourceTree = "<group>"; };
@@ -161,6 +170,10 @@
 		6A804851243235130084B7D6 /* PRPushTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRPushTopicViewController.h; sourceTree = "<group>"; };
 		6A804852243235130084B7D6 /* PRPushTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRPushTopicViewController.m; sourceTree = "<group>"; };
 		6A804853243235130084B7D6 /* PRPushTopicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PRPushTopicViewController.xib; sourceTree = "<group>"; };
+		6A855D592451D1BA001A6663 /* start.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start.jpg; sourceTree = "<group>"; };
+		6A855D5B2451D30D001A6663 /* icon1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.1.png; sourceTree = "<group>"; };
+		6A855D5F2451D4CB001A6663 /* sleep1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sleep1.jpg; sourceTree = "<group>"; };
+		6A855D612451D5C3001A6663 /* image_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_4.jpg; sourceTree = "<group>"; };
 		6A9587D12440534C00B61EC3 /* 2.4意见反馈_03(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2.4意见反馈_03(1).png"; sourceTree = "<group>"; };
 		6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = member_daily_center_bg.jpg; sourceTree = "<group>"; };
 		6A9931D8240E0DAE000AB6AC /* image_20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_20.jpg; sourceTree = "<group>"; };
@@ -202,16 +215,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A78C57B24434E1D00451912 /* AVOSCloud.framework in Frameworks */,
+				6A78C57D24434E1D00451912 /* AVOSCloudIM.framework in Frameworks */,
+				6A78C57F24434E1D00451912 /* Pods_PRSleepApp.framework in Frameworks */,
 				6A25650C2430CA47002623AE /* SDWebImage.framework in Frameworks */,
 				6A6FFF512424A972001BBE85 /* CoreGraphics.framework in Frameworks */,
-				DCF6B933A5F535D492F53273 /* Pods_PRSleepApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A0FD2C524274FE900C781CF /* PBDragCardViews */ = {
+		6A0FD2C524274FE900C781CF /* PRDragCardViews */ = {
 			isa = PBXGroup;
 			children = (
 				6A78DF2824249182008608B8 /* PRDragCardView.h */,
@@ -221,7 +236,7 @@
 				6A7BB0922424B0E50078CF81 /* PRDragConfig.h */,
 				6A0FD2C624274FFA00C781CF /* cell */,
 			);
-			path = PBDragCardViews;
+			path = PRDragCardViews;
 			sourceTree = "<group>";
 		};
 		6A0FD2C624274FFA00C781CF /* cell */ = {
@@ -384,7 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				6AE99B33243F27C3007483CC /* Danmu */,
-				6A0FD2C524274FE900C781CF /* PBDragCardViews */,
+				6A0FD2C524274FE900C781CF /* PRDragCardViews */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -431,10 +446,13 @@
 			isa = PBXGroup;
 			children = (
 				6A286364242DDF7E00BFA4E8 /* touxiang.png */,
+				6A855D5F2451D4CB001A6663 /* sleep1.jpg */,
+				6A855D5B2451D30D001A6663 /* icon1.1.png */,
 				6AE30BFC242B57E000A5B9BB /* image_1.jpg */,
 				6AE99B31243F245E007483CC /* image_2.jpg */,
 				6AE30BFE242B57E000A5B9BB /* image_3.jpg */,
-				6A286392242F2C5E00BFA4E8 /* image_4.jpg */,
+				6A855D612451D5C3001A6663 /* image_4.jpg */,
+				6A286392242F2C5E00BFA4E8 /* s.jpg */,
 				6A496D262428A84000D8FD8C /* playBTN1.png */,
 				6A9931DF240E5E58000AB6AC /* tranlcent.png */,
 				6A9931D7240E0DAE000AB6AC /* member_daily_center_bg.jpg */,
@@ -448,6 +466,7 @@
 				6A0FD2C024274D9D00C781CF /* image_10.jpg */,
 				6A9931D8240E0DAE000AB6AC /* image_20.jpg */,
 				6A9931D9240E0DAE000AB6AC /* image_30.jpg */,
+				6A855D592451D1BA001A6663 /* start.jpg */,
 				6A0FD2C124274D9D00C781CF /* image_2member_daily_left_center_bg.jpg */,
 				6A0FD2BF24274D9D00C781CF /* image_3member_daily_left_center_bg.jpg */,
 			);
@@ -524,6 +543,9 @@
 		78290F604F3A5B14981CAFF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A78C57A24434E1D00451912 /* AVOSCloud.framework */,
+				6A78C57C24434E1D00451912 /* AVOSCloudIM.framework */,
+				6A78C57E24434E1D00451912 /* Pods_PRSleepApp.framework */,
 				6A25650B2430CA47002623AE /* SDWebImage.framework */,
 				6A6FFF502424A972001BBE85 /* CoreGraphics.framework */,
 				F014DB7583B87883229E29CC /* Pods_PRSleepApp.framework */,
@@ -608,7 +630,7 @@
 				6AE99B2E243F239E007483CC /* image_4.m4a in Resources */,
 				6AC6D949242A168C00FF3479 /* 4948.MP3 in Resources */,
 				6A1EAA1F23FBC79B00A84CA0 /* LaunchScreen.storyboard in Resources */,
-				6A286393242F2C5F00BFA4E8 /* image_4.jpg in Resources */,
+				6A286393242F2C5F00BFA4E8 /* s.jpg in Resources */,
 				6A9931DA240E0DAE000AB6AC /* member_daily_center_bg.jpg in Resources */,
 				6A28637A242DEEAF00BFA4E8 /* login_textfield@2x.png in Resources */,
 				6A496D242428A72D00D8FD8C /* image_1.m4a in Resources */,
@@ -617,6 +639,7 @@
 				6A28637E242DEEAF00BFA4E8 /* login_bg@2x.jpg in Resources */,
 				6A804855243235130084B7D6 /* PRPushTopicViewController.xib in Resources */,
 				6A286381242DEEAF00BFA4E8 /* login_textfield.png in Resources */,
+				6A855D602451D4CB001A6663 /* sleep1.jpg in Resources */,
 				6A9931E0240E5E58000AB6AC /* tranlcent.png in Resources */,
 				6AE30C01242B57E000A5B9BB /* image_3.jpg in Resources */,
 				6A0FD2C424274D9E00C781CF /* image_2member_daily_left_center_bg.jpg in Resources */,
@@ -639,15 +662,18 @@
 				6A286383242DEEAF00BFA4E8 /* login_bg_ip5@2x.jpg in Resources */,
 				6A28637F242DEEAF00BFA4E8 /* login_bg.jpg in Resources */,
 				6A2EF7DE23FBF8B3001522FA /* iconMineNormal.png in Resources */,
+				6A855D5C2451D30E001A6663 /* icon1.1.png in Resources */,
 				6A9931DC240E0DAE000AB6AC /* image_30.jpg in Resources */,
 				6A0FD2C324274D9E00C781CF /* image_10.jpg in Resources */,
 				6AEAD2F72434B29D001C3FFD /* PRDanMaViewController.xib in Resources */,
 				6A496D252428A72D00D8FD8C /* image_2.m4a in Resources */,
+				6A855D5A2451D1BA001A6663 /* start.jpg in Resources */,
 				6A286380242DEEAF00BFA4E8 /* Failed.png in Resources */,
 				6A2EF7E223FBF91B001522FA /* iconMoreSelected.png in Resources */,
 				6A286384242DEEAF00BFA4E8 /* login_btn_blue_nor@2x.png in Resources */,
 				6A4A015A2430AE9C0033ADCA /* PRTopicTableViewCell.xib in Resources */,
 				6A9587D22440534C00B61EC3 /* 2.4意见反馈_03(1).png in Resources */,
+				6A855D622451D5C3001A6663 /* image_4.jpg in Resources */,
 				6AE30BFF242B57E000A5B9BB /* image_1.jpg in Resources */,
 				6A9931DB240E0DAE000AB6AC /* image_20.jpg in Resources */,
 			);
@@ -865,11 +891,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MH5QBV9URE;
 				INFOPLIST_FILE = PRSleepApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = priders.PRSleepyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -886,11 +913,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MH5QBV9URE;
 				INFOPLIST_FILE = PRSleepApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = priders.PRSleepyApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

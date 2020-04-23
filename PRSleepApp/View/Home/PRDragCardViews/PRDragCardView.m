@@ -50,16 +50,13 @@ static const CGFloat kVisibleCount = 4;
     return self;
 }
 
-//- (NSInteger)remindNumber{
-////    [self.subviews makeObjectsPerformSelector:@selector(<#selector#>)];
-//    return 0;
-//}
 - (void)reloadData{
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self defaultConfig];
     [self installNextItem];
     [self resetVisibleCards];
 }
+
 // MARK: - 初始化数据
 - (void)defaultConfig {
     self.cards = [NSMutableArray array];
@@ -70,9 +67,8 @@ static const CGFloat kVisibleCount = 4;
 }
 
 - (void)installNextItem {
-   
-    
-    if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfIndragCardView:)] && [self.dataSource respondsToSelector:@selector(dragCardView:cellForRowAtIndex:)]) {
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfIndragCardView:)] &&
+        [self.dataSource respondsToSelector:@selector(dragCardView:cellForRowAtIndex:)]) {
         NSInteger indexs = [self.dataSource numberOfIndragCardView:self];
         NSInteger preloadViewCont = indexs <= kVisibleCount ? indexs : kVisibleCount;
         //  -------------------------------------------------------------------------------------------------------
@@ -89,7 +85,7 @@ static const CGFloat kVisibleCount = 4;
                                         0,
                                         self.frame.size.width ,
                                         self.frame.size.height );
-                    if (self.loadedIndex >= 3) {
+                    if (self.loadedIndex >= 4) {
                         cell.frame = self.lastCardFrame;
                     } else {
                     CGRect frame = cell.frame;
@@ -111,12 +107,7 @@ static const CGFloat kVisibleCount = 4;
                 // 添加清扫手势
                 UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandle:)];
                 [cell addGestureRecognizer:pan];
-                
-                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandle:)];
-                [cell addGestureRecognizer:tap];
-                // 总数indexs, 计算以及加载到了第几个index
                 self.loadedIndex += 1;
-                // NSLog(@"loaded %ld card", (long)self.loadedIndex);
             }
         }
     } else {
@@ -128,8 +119,8 @@ static const CGFloat kVisibleCount = 4;
     __weak typeof(self) weakself = self;
     [UIView animateWithDuration:0.5
                           delay:0.0
-         usingSpringWithDamping:0.6
-          initialSpringVelocity:0.0
+         usingSpringWithDamping:0.6//参数的范围为0.0f到1.0f，数值越小「弹簧」的振动效果越明显。可以视为弹簧的劲度系数
+          initialSpringVelocity:0.0//表示动画的初始速度，数值越大一开始移动越快。
                         options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction
                      animations:^{
                          [weakself originalLayout];
@@ -172,13 +163,14 @@ static const CGFloat kVisibleCount = 4;
         cell.originalTransform = cell.transform;
     }
     
-    if (self.currentCard && self.delegate && [self.delegate respondsToSelector:@selector(dragCardView:
-                                                                                         dragDropDirection:
-                                                                                         widthRatio:
-                                                                                         heightRatio:
-                                                                                         currentCell:)]) {
+//    if (self.currentCard && self.delegate && [self.delegate respondsToSelector:@selector(dragCardView:
+//                                                                                         dragDropDirection:
+//                                                                                         widthRatio:
+//                                                                                         heightRatio:
+//                                                                                         currentCell:)])
+//    {
 //        [self.delegate dragCardView:self dragDropDirection:PRDragDropDirectionDefault widthRatio:0 heightRatio:0 currentCell:self.currentCard];
-    }
+//    }
 }
 
 - (void)panGestureHandle:(UIPanGestureRecognizer *)gesture {
@@ -191,25 +183,15 @@ static const CGFloat kVisibleCount = 4;
         CGPoint point = [gesture translationInView:self]; // translation: 平移 获取相对坐标原点的坐标
         CGPoint movedPoint = CGPointMake(gesture.view.center.x + point.x, gesture.view.center.y + point.y);
         cell.center = movedPoint;
-        //        cell.transform = CGAffineTransformRotate(cell.originalTransform, (gesture.view.center.x - self.cardCenter.x) / self.cardCenter.x * (M_PI_4 / 4));
+        //带有旋转效果
+        cell.transform = CGAffineTransformRotate(cell.originalTransform, (gesture.view.center.x - self.cardCenter.x) / self.cardCenter.x * (M_PI_4 / 4));
         cell.transform = CGAffineTransformMakeTranslation(15, 15);
         [gesture setTranslation:CGPointZero inView:self]; // 设置坐标原点位上次的坐标
-        if (self.delegate && [self.delegate respondsToSelector:@selector(dragCardView:
-                                                                         dragDropDirection:
-                                                                         widthRatio:
-                                                                         heightRatio:
-                                                                         currentCell:)]) {
-            //  ---------------------------------------------------------------------------------------------
-            //  做比例, 总长度(0 ~ self.cardCenter.x), 已知滑动的长度 (gesture.view.center.x - self.cardCenter.x)
-            //  ratio用来判断是否显示图片中的"Like"或"DisLike"状态, 用开发者限定多少比例显示或设置透明度
-            //  ---------------------------------------------------------------------------------------------
+        {
+//            滑动的长度 (gesture.view.center.x - self.cardCenter.x)
             float widthRatio = (gesture.view.center.x - self.cardCenter.x) / self.cardCenter.x;
-//            float heightRatio = (gesture.view.center.y - self.cardCenter.y) / self.cardCenter.y;
-            // Moving
             [self judgeMovingState: widthRatio];
-            //  ----------------------------------------
-            //  左右的判断方法为: 只要 ratio_w > 0 就是Right
-            //  ----------------------------------------
+            //  左右的判断方法
             if (widthRatio > 0) {
                 self.direction = PRDragDropDirectionRight;
             } if (widthRatio < 0) {
@@ -218,14 +200,11 @@ static const CGFloat kVisibleCount = 4;
             } else if (widthRatio == 0) {
                 self.direction = PRDragDropDirectionDefault;
             }
-//            [self.delegate dragCardView:self dragDropDirection:self.direction widthRatio:widthRatio heightRatio:heightRatio currentCell:self.currentCard];
         }
     }
     if (gesture.state == UIGestureRecognizerStateEnded ||
         gesture.state == UIGestureRecognizerStateCancelled) {
-        //  --------------------
         //  随着滑动的方向消失或还原
-        //  --------------------
         float widthRatio = (gesture.view.center.x - self.cardCenter.x) / self.cardCenter.x;
         float moveWidth  = (gesture.view.center.x  - self.cardCenter.x);
         float moveHeight = (gesture.view.center.y - self.cardCenter.y);
@@ -252,8 +231,6 @@ static const CGFloat kVisibleCount = 4;
     } else { // 移除了
         realdirection = self.direction;
         // 移除屏幕后
-        // 1.删除移除屏幕的cardView
-        // 2.重新布局剩下的cardViews
         NSInteger flag = direction == PRDragDropDirectionLeft ? -1 : 2;
         [UIView animateWithDuration:0.5f
                               delay:0.0
@@ -261,16 +238,15 @@ static const CGFloat kVisibleCount = 4;
                          animations:^{
                              cardView.center = CGPointMake([UIScreen mainScreen].bounds.size.width * flag, [UIScreen mainScreen].bounds.size.width * flag / scale + self.cardCenter.y);
                          } completion:^(BOOL finished) {
+                              // 1.删除移除屏幕的cardView
                              [cardView removeFromSuperview];
                          }];
         [self.cards removeObject:cardView];
         self.moving = NO;
+        // 2.重新布局剩下的cardViews
         [self resetVisibleCards];
     }
-    if (self.delegate && [self.delegate respondsToSelector:@selector(dragCardView:dragDropDirection:dragEndWithIndex:)]) {
-//
-//        [self.delegate dragCardView:self dragDropDirection:realdirection dragEndWithIndex:cardView.tag];
-    }
+
 }
 - (void)judgeMovingState:(CGFloat)scale {
     if (!self.moving) {
@@ -280,6 +256,7 @@ static const CGFloat kVisibleCount = 4;
         [self movingVisibleCards:scale];
     }
 }
+//移动旋转 取消
 - (void)movingVisibleCards:(CGFloat)scale {
     scale = fabs(scale) >= kBoundaryRatio ? kBoundaryRatio : fabs(scale);
     CGFloat sPoor = kFirstCardScale - kSecondCardScale; // 相邻两个CardScale差值
@@ -297,12 +274,12 @@ static const CGFloat kVisibleCount = 4;
                 CGAffineTransform scale = CGAffineTransformScale(CGAffineTransformIdentity, tPoor + 1, tPoor + 1);
                 CGAffineTransform translate = CGAffineTransformTranslate(scale, 0, -yPoor);
                 cell.transform = translate;
-                
+
             }break;
             case 3:{
-                /*CGAffineTransform scale = CGAffineTransformScale(CGAffineTransformIdentity, tPoor + (1 - sPoor), tPoor + (1 - sPoor));
+                CGAffineTransform scale = CGAffineTransformScale(CGAffineTransformIdentity, tPoor + (1 - sPoor), tPoor + (1 - sPoor));
                  CGAffineTransform translate = CGAffineTransformTranslate(scale, 0, 2 * kCellWidthEdage);
-                 cardView.transform = translate;*/
+                 cell.transform = translate;
             } break;
             default:
                 break;
@@ -310,42 +287,5 @@ static const CGFloat kVisibleCount = 4;
     }
 }
 
-- (void)tapGestureHandle:(UITapGestureRecognizer *)tap {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(dragCardView:didSelectIndex:)]) {
-        [self.delegate dragCardView:self didSelectIndex:tap.view.tag];
-    }
-}
-
-- (void)removeFormDirection:(PRDragDropDirection)direction {
-    if (self.moving) {
-        return;
-    } else {
-        CGPoint cardCenter = CGPointZero;
-        CGFloat flag = 0;
-        switch (direction) {
-            case PRDragDropDirectionLeft:
-                cardCenter = CGPointMake(-[UIScreen mainScreen].bounds.size.width / 2, self.cardCenter.y);
-                flag = -1;
-                break;
-            case PRDragDropDirectionRight:
-                cardCenter = CGPointMake([UIScreen mainScreen].bounds.size.width * 1.5, self.cardCenter.y);
-                flag = 1;
-                break;
-            default:
-                break;
-        }
-        UIView *firstView = [self.cards firstObject];
-        [UIView animateWithDuration:0.35 animations:^{
-            CGAffineTransform translate = CGAffineTransformTranslate(CGAffineTransformIdentity, flag * 20, 0);
-            firstView.transform = CGAffineTransformRotate(translate, flag * M_PI_4 / 4);
-            firstView.center = cardCenter;
-        } completion:^(BOOL finished) {
-            [firstView removeFromSuperview];
-            [self.cards removeObject:firstView];
-            [self installNextItem];
-            [self resetVisibleCards];
-        }];
-    }
-}
 
 @end

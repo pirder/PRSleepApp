@@ -31,6 +31,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+//    [self.view setBackgroundColor:[UIColor darkGrayColor]];
+//    [self.tableView setBackgroundColor:[UIColor darkGrayColor]];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     //右滑返回手势
@@ -57,22 +59,18 @@
     //创建聊天室
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"创建一个新的聊天室" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        
         UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"请输入名字" message:@"创建聊天室" preferredStyle:UIAlertControllerStyleAlert];
         [alert1 addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             textField.placeholder = @"聊天室的名字";
         }];
         [alert1 addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            //
         }]];
         [alert1 addAction:[UIAlertAction actionWithTitle:@"创建" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             //创建聊天室具体操作
             NSString *name = alert1.textFields.firstObject.text;
-            
             [self.tom createChatRoomWithName:name attributes:nil callback:^(AVIMChatRoom * _Nullable chatRoom, NSError * _Nullable error) {
                 if (chatRoom && !error) {
-                    AVIMTextMessage *textMessage = [AVIMTextMessage messageWithText:nil attributes:nil];
                     [chatRoom sendMessage:nil callback:^(BOOL succeeded, NSError * _Nullable error) {
                         if (succeeded && !error) {
                             ///加进入数组
@@ -88,36 +86,46 @@
         [self presentViewController:alert1 animated:YES completion:nil];
         
     }];
-    
-    
     [alert addAction:action];
-    
-    
     [alert addAction:[UIAlertAction actionWithTitle:@"获取存在的聊天室" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //
         [self queryRecentChatRooms];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
-
-
--(void)addChat{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Action" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Create a chatroom" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //
+-(void)queryRecentChatRooms{
+    
+    AVIMConversationQuery *query = [self.tom conversationQuery];
+    [query whereKey:@"tr" equalTo:@(YES)];
+    NSLog(@"打印聊天室信息%@",query);
+    [query findConversationsWithCallback:^(NSArray<AVIMConversation *> * _Nullable conversations, NSError * _Nullable error) {
+        if (!error) {
+            self.chatarr=[(AVIMChatRoom *)conversations mutableCopy];
+        }else{
+            NSLog(@"错误信息--- %@",error);
+        }
+        //刷新列别
     }];
-    [alert addAction:action];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Get Recent ChatRooms" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
+
+//-(void)addChat{
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Action" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Create a chatroom" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        //
+//    }];
+//    [alert addAction:action];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Get Recent ChatRooms" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        //
+//    }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        //
+//    }]];
+//    [self presentViewController:alert animated:YES completion:nil];
+//}
 -(void)lastTest{
     
     self.user = [AVUser currentUser];
@@ -156,41 +164,12 @@
     [refreshControl endRefreshing];
 }
 
--(void)queryRecentChatRooms{
 
-    AVIMConversationQuery *query = [self.tom conversationQuery];
-    [query whereKey:@"tr" equalTo:@(YES)];
-    NSLog(@"打印聊天室信息%@",query);
-        [query findConversationsWithCallback:^(NSArray<AVIMConversation *> * _Nullable conversations, NSError * _Nullable error) {
-            if (!error) {
-                
-                 self.chatarr=conversations;
-            }else{
-                NSLog(@"错误信息--- %@",error);
-            }
-            //刷新列别
-        }];
-    dispatch_async(dispatch_get_main_queue(), ^{
-         [self.tableView reloadData];
-    });
-}
 
 - (IBAction)sendMessageBtn:(id)sender {
-    //创建一个聊天对话
-    /*
-    [self.tom createConversationWithName:[NSString stringWithFormat:@"%@ & 987",self.user.username] clientIds:@[@"987"] attributes:nil options:AVIMConversationOptionUnique callback:^(AVIMConversation * _Nullable conversation, NSError * _Nullable error) {
-        AVIMTextMessage *message = [AVIMTextMessage messageWithText:@"起床" attributes:nil];
-        [conversation sendMessage:message callback:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                NSLog(@"发送成功");
-            }
-        }];
-    }];
-     */
-    
+  
     [self.tom createChatRoomWithName:@"聊天室" attributes:nil callback:^(AVIMChatRoom * _Nullable chatRoom, NSError * _Nullable error) {
         if (chatRoom && !error) {
-            //
             AVIMTextMessage *textMessage = [AVIMTextMessage messageWithText:nil attributes:nil];
             [chatRoom sendMessage:textMessage callback:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded && !error) {
@@ -199,7 +178,6 @@
             }];
         }
     }];
-    
     AVIMConversationQuery *query = [self.tom conversationQuery];
     [query whereKey:@"tr" equalTo:@(YES)];
 //    [query whereKey:@"name" equalTo:@"聊天室"];
@@ -283,6 +261,9 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     cell.textLabel.text = self.chatarr[indexPath.row].name;
+//    [cell setBackgroundColor:[UIColor darkGrayColor]];
+    //取消被选中效果
+    cell.selectionStyle =UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
     
@@ -308,6 +289,9 @@
 //
 //        }
 //    }];
+}
+- (IBAction)cancelBack:(id)sender {
+    [self edgePan:nil];
 }
 
 ///

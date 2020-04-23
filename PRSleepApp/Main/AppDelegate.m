@@ -28,45 +28,30 @@
 
 -(void) initRootVC
 {
-    
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
 //    self.window.hidden = NO;
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.hidden = NO;
-    //1
+    
     HomeViewController *VC1 = [[HomeViewController alloc]init];
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:VC1];
-   
     MoreViewController *VC2 = [[MoreViewController alloc]init];
     UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:VC2];
-    
     MineViewController *VC3 = [[MineViewController alloc]init];
     UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:VC3];
-   
     VC1.title = @"我的家";
     VC2.title = @"更多";
     VC3.title = @"我的";
-    
     //2
     NSArray *viewCtrs = @[nav1,nav2,nav3];
     //3
     self.rootTabbarCtr = [[UITabBarController alloc]init];
-//    [self.rootTabbarCtr setViewControllers:viewCtrs animated:YES];
     [self.rootTabbarCtr setViewControllers:viewCtrs];
-//    self.window.rootViewController = self.rootTabbarCtr;
-//    [self.window setRootViewController:self.rootTabbarCtr];
     self.window.rootViewController = self.rootTabbarCtr;
-    
     UITabBar *tabBar = self.rootTabbarCtr.tabBar;
     UITabBarItem  *item1 = [tabBar.items objectAtIndex:0];
     UITabBarItem  *item2 = [tabBar.items objectAtIndex:1];
     UITabBarItem  *item3 = [tabBar.items objectAtIndex:2];
-//
-   
-    //半透明属性
-    //    tabBar.backgroundImage = [[UIImage alloc] init];
-    //    tabBar.backgroundColor = nil;
-//    tabBar.translucent = YES;
   //tabBar透明
     tabBar.backgroundImage = [UIImage imageNamed:@"tranlcent"];
     tabBar.shadowImage = [[UIImage alloc]init];
@@ -77,16 +62,15 @@
     item2.image = [[UIImage imageNamed:@"iconMoreNormal"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     item3.selectedImage = [[UIImage imageNamed:@"iconMineSelected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     item3.image = [[UIImage imageNamed:@"iconMineNormal"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
     //设置uitabbaritewm字体
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGB(54, 185,175),UITextAttributeTextColor, nil] forState:UIControlStateSelected];
-    
 //    self.window.rootViewController = [[PRLoginViewController alloc]init];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
     [self.window makeKeyAndVisible];
-    
 }
+
+
+
 - (UIImage *)imageWithColorDIY{
     return [[UIImage alloc]init];
 }
@@ -117,7 +101,12 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
+//
 
+//半透明属性
+//    tabBar.backgroundImage = [[UIImage alloc] init];
+//    tabBar.backgroundColor = nil;
+//    tabBar.translucent = YES;
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.

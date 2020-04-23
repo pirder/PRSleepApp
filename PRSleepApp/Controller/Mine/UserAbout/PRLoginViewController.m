@@ -211,32 +211,70 @@
         [self presentViewController:alertController   animated:YES completion:nil];
     }
     if (username && password) {
-        [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser * _Nullable user, NSError * _Nullable error) {
+        if ([username length]!=11) {
+            [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser * _Nullable user, NSError * _Nullable error) {
+                if (user) {
+                    NSLog(@"登录成功");
+                    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                    //登陆成功后把用户名和密码存储到UserDefault
+                    [userDefaults setObject:username forKey:@"username"];
+                    [userDefaults setObject:password forKey:@"password"];
+                    [userDefaults synchronize];
+                    //                [self dismissViewControllerAnimated:YES completion:nil];
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        //
+                    }];
+                    [self.delegate testLoadData];
+                    
+                    
+                }else{
+                    NSLog(@"登录失败");
+                    UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"登录失败" message:@"用户名或者密码错误" preferredStyle:(UIAlertControllerStyleAlert) ];
+                    
+                    //添加按钮到提示窗
+                    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style: (UIAlertActionStyleDefault) handler:nil]];
+                    //显示提示框
+                    [self presentViewController:alertController   animated:YES completion:nil];
+                }
+                
+            }];
+        }else{
+       
+        [AVUser logInWithMobilePhoneNumberInBackground:username password:password block:^(AVUser * _Nullable user, NSError * _Nullable error) {
             if (user) {
                 NSLog(@"登录成功");
+               
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 //登陆成功后把用户名和密码存储到UserDefault
-                [userDefaults setObject:username forKey:@"username"];
+                [userDefaults setObject:user.username forKey:@"username"];
                 [userDefaults setObject:password forKey:@"password"];
                 [userDefaults synchronize];
-//                [self dismissViewControllerAnimated:YES completion:nil];
+                //                [self dismissViewControllerAnimated:YES completion:nil];
                 [self dismissViewControllerAnimated:YES completion:^{
-//                   
+                    //
                 }];
                 [self.delegate testLoadData];
+//                NSLog(@"%@", [[AVUser currentUser]username]);
                 
             }else{
                 NSLog(@"登录失败");
+                UIAlertController *alertController=[UIAlertController alertControllerWithTitle:@"登录失败" message:@"用户名或者密码错误" preferredStyle:(UIAlertControllerStyleAlert) ];
+                
+                //添加按钮到提示窗
+                [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style: (UIAlertActionStyleDefault) handler:nil]];
+                //显示提示框
+                [self presentViewController:alertController   animated:YES completion:nil];
             }
-            
         }];
+        }
     }
-    
+    self.accountTextField.text =nil;
+    self.passwordTextField.text =nil;
 
-    
 }
 
 -(void)LogupBtnClickListener{
+    
     PRSignupViewController *signup = [[PRSignupViewController alloc]init];
     [signup setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [signup setModalPresentationStyle:UIModalPresentationFullScreen];

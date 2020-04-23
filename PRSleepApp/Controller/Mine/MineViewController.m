@@ -34,13 +34,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self startUI];
-//    [self setUI];
-
-    // Do any additional setup after loading the view.
 }
 
 -(void)setLoginedUI{
-    personalTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStyleGrouped];
+    personalTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,
+                                                                     [UIScreen mainScreen].bounds.size.width,
+                                                                     [UIScreen mainScreen].bounds.size.height)
+                                                    style:UITableViewStyleGrouped];
     [self.view addSubview:personalTableView];
     personalTableView.dataSource = self;
     personalTableView.delegate = self;
@@ -49,9 +49,7 @@
     personalTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
     mineOfDataSource = @[@"我的心经",@"密码管理",@"意见反馈",@"关于"];
 }
-
 -(void)startUI{
-
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     name = [userDefault objectForKey:@"username"];
     if (name) {
@@ -209,32 +207,41 @@
      return cell;
 }
 
+-(void)exitLoginSection{
+
+    //退出登录
+    [AVUser logOut];
+    
+    NSLog(@"exit");
+    //获取UserDefaults单例
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    //移除UserDefaults中存储的用户信息
+    [userDefaults removeObjectForKey:@"username"];
+    [userDefaults removeObjectForKey:@"password"];
+    [userDefaults synchronize];
+    name=nil;
+    
+    if(!oginViewControllerForPush){
+        oginViewControllerForPush = [[PRLoginViewController alloc]init];
+    }
+    
+    self.definesPresentationContext =NO;
+    [oginViewControllerForPush setModalPresentationStyle:UIModalPresentationOverFullScreen];
+    [oginViewControllerForPush setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [oginViewControllerForPush setDelegate:self];
+    
+    [self presentViewController:oginViewControllerForPush animated:YES completion:nil];
+    
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 2) {
+        [self exitLoginSection];
+    }
+    
+    if (indexPath.section ==0) {
         
-        //退出登录
-        [AVUser logOut];
-      
-        NSLog(@"exit");
-        //获取UserDefaults单例
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        //移除UserDefaults中存储的用户信息
-        [userDefaults removeObjectForKey:@"username"];
-        [userDefaults removeObjectForKey:@"password"];
-        [userDefaults synchronize];
-        name=nil;
-        
-        if(!oginViewControllerForPush){
-        oginViewControllerForPush = [[PRLoginViewController alloc]init];
-        }
-        
-        self.definesPresentationContext =NO;
-        [oginViewControllerForPush setModalPresentationStyle:UIModalPresentationOverFullScreen];
-        [oginViewControllerForPush setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-        [oginViewControllerForPush setDelegate:self];
-        
-        [self presentViewController:oginViewControllerForPush animated:YES completion:nil];
-        
+        [self setUserName];
     }
     
     if (indexPath.section ==1) {
@@ -309,6 +316,47 @@
     [self presentViewController:alert1 animated:YES completion:nil];
 }
 
+-(void)setUserName{
+    UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"请输入重新更改的用户名" message:@"3天只允许更改一次" preferredStyle:UIAlertControllerStyleAlert];
+    [alert1 addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"输入名字";
+    }];
+    [alert1 addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //
+    }]];
+    [alert1 addAction:[UIAlertAction actionWithTitle:@"发送" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSString *sname = alert1.textFields.firstObject.text;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [AVUser logInWithUsernameInBackground:[userDefaults objectForKey:@"username"] password:[userDefaults objectForKey:@"password"] block:^(AVUser *user, NSError *error) {
+            if (user != nil) {
+                // 试图修改用户名
+                [user setObject:sname forKey:@"username"];
+                // 密码已被加密，这样做会获取到空字符串
+                
+                // 保存更改
+                [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        // 可以执行，因为用户已鉴权
+                        // 绕过鉴权直接获取用户
+                        [userDefaults setObject:sname forKey:@"username"];
+                        [userDefaults synchronize];
+                        
+                        [self->personalTableView reloadData];
+                    
+                        [self exitLoginSection];
+                    } else {
+                        // 错误处理
+                    }
+                }];
+            } else {
+                // 错误处理
+            }
+        }];
+        
+    }]];
+    [self presentViewController:alert1 animated:YES completion:nil];
+}
 
 
 -(void)alterShowLitterTitle:(NSString *)title message:(NSString *)message{
